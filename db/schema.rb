@@ -10,10 +10,54 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_123740) do
+ActiveRecord::Schema.define(version: 2020_08_24_140643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cuisines", force: :cascade do |t|
+    t.text "description"
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ingredient_reviews", force: :cascade do |t|
+    t.bigint "review_id", null: false
+    t.bigint "ingredient_id", null: false
+    t.integer "score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["ingredient_id"], name: "index_ingredient_reviews_on_ingredient_id"
+    t.index ["review_id"], name: "index_ingredient_reviews_on_review_id"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.string "kind"
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "address"
+    t.text "description"
+    t.bigint "cuisine_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "name"
+    t.index ["cuisine_id"], name: "index_restaurants_on_cuisine_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_reviews_on_restaurant_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +71,9 @@ ActiveRecord::Schema.define(version: 2020_08_24_123740) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "ingredient_reviews", "ingredients"
+  add_foreign_key "ingredient_reviews", "reviews"
+  add_foreign_key "restaurants", "cuisines"
+  add_foreign_key "reviews", "restaurants"
+  add_foreign_key "reviews", "users"
 end
