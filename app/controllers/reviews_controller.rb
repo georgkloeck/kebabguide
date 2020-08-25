@@ -1,17 +1,22 @@
 class ReviewsController < ApplicationController
-  before_action :find_restaurant, only: [:new, :create]
+  before_action :find_restaurant, only: [:create]
+
+  def show
+    @review = Review.find(params[:id])
+  end
 
   def new
     @review = Review.new
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.restaurant = @restaurant
+    @review = @restaurant.reviews.new(user: current_user)
+
+    binding.pry
     if @review.save
-      redirect_to restaurant_path(@restaurant)
+      redirect_to restaurant_review_path(@restaurant, @review)
     else
-      render :new
+      render restaurant_path(@restaurant)
     end
   end
 
