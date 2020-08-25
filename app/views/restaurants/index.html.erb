@@ -3,3 +3,8 @@
   <li><%= restaurant.name %></li>
 </ul>
 <% end %>
+<%# map div below integrate wherever you want when desigining %>
+<div id="map"
+     style="width: 100%; height: 600px;"
+     data-markers="<%= @markers.to_json %>"
+     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
