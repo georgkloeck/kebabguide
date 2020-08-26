@@ -11,7 +11,6 @@ class ReviewsController < ApplicationController
 
   def create
     @review = @restaurant.reviews.new(user: current_user)
-
     if @review.save
       redirect_to restaurant_review_path(@restaurant, @review)
     else

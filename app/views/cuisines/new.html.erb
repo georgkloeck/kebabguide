@@ -1,0 +1,7 @@
+<%= form_for @cuisine, html: { multipart: true } do |f| %>
+  <div><%= f.text_field :name %></div>
+  <div><%= image_tag(@cuisine.image_url, class: 'image-thumbnail') if @cuisine.image? %></div>
+  <div><%= f.file_field :image %></div>
+  <div><%= f.hidden_field :image_cache %></div>
+  <div><%= f.submit "Save Cuisine" %></div>
+<% end %>

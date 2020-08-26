@@ -22,9 +22,6 @@ class RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    # @restaurant.image = restaurant_params[:image]
-    # binding.pry
-
     if @restaurant.save
       redirect_to @restaurant
     else
@@ -32,9 +29,9 @@ class RestaurantsController < ApplicationController
     end
   end
 
-  private 
+  private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :cuisine_id, :file, :image, :image_cache)
+    params.require(:restaurant).permit(:name, :cuisine_id, :image, :image_cache)
   end
 end
