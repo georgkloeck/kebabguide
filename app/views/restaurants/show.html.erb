@@ -6,4 +6,98 @@
 <p> <%= @restaurant.name %></p>
 <p> <%= @restaurant.description %></p>
 <p> <%= @restaurant.address %></p>
+
+<h2> <%= @restaurant.cuisine.name %> Cuisine</h2>
+<p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
+
 <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
+
+
+<div class="review">
+  <div class="kind-review">
+    <h3>Fillings</h3>
+    <div class="line"></div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Filling 1</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Filling 2</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Filling 3</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+  </div>
+  <div class="kind-review">
+    <h3>Sauces</h3>
+    <div class="line"></div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Sauce 1</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Sauce 2</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Sauce 3</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+  </div>
+   <div class="kind-review">
+    <h3>Breads</h3>
+    <div class="line"></div>
+      <div class="ingredient-review">
+         <div class="ingredient">
+           <h4>Bread 1</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+        <div class="ingredient">
+           <h4>Bread 2</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+      <div class="ingredient-review">
+        <div class="ingredient">
+           <h4>Bread 3</h4>
+         </div>
+         <div class="score">
+           <h4>XXXXX</h4>
+         </div>
+      </div>
+  </div>
+</div>
+
+
