@@ -21,7 +21,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def find_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+  def review_params
+    params.require(:review).permit(:restaurant_id, :user_id, :photos)
   end
 end
