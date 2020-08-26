@@ -20,6 +20,7 @@ class ReviewsController < ApplicationController
     @user = current_user
     @restaurant = Restaurant.find(params[:id])
     @review = Review.new(user_id: @user.id, restaurant_id: @restaurant.id) # need a user and rest ids
+
     if @review.save
       redirect_to restaurant_review_path(@restaurant, @review)
     else
@@ -36,7 +37,7 @@ class ReviewsController < ApplicationController
 
   private
 
-  def find_restaurant
-    @restaurant = Restaurant.find(params[:restaurant_id])
+  def review_params
+    params.require(:review).permit(:restaurant_id, :user_id, :photos)
   end
 end

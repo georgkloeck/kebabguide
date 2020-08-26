@@ -68,7 +68,8 @@ puts "_______________________________________________"
 
 puts "seeding Restaurants"
 
-  Restaurant.create(name:"Hamdi Baba", address: "Turmstraße 57, 10551 Berlin", description:"The third Store by the Hmdi family franchise", cuisine_id:"1")
+  restaurant = Restaurant.create(name:"Hamdi Baba", address: "Turmstraße 57, 10551 Berlin", description:"The third Store by the Hmdi family franchise", cuisine_id:"1")
+
 
    Restaurant.create(name:"Alleppo Grill", address: "Mehringdamm 32, 10961 Berlin", description:"Typical Aleppo style schawarma", cuisine_id:"2")
 
@@ -80,7 +81,19 @@ puts "seeding Restaurants"
 
 puts "_______________________________________________"
 
-puts "Seeding users"
+puts "Seeding default regular user"
+
+User.create(email: "regular@mail.com", password: "password")
+
+puts "_______________________________________________"
+
+puts "Seeding admin user"
+
+User.create(email: "admin@mail.com", password: "password")
+
+puts "_______________________________________________"
+
+puts "Seeding 10 random users"
 
   10.times do
     user = User.new
