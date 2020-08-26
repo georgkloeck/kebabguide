@@ -80,9 +80,15 @@ puts "seeding Restaurants"
 
 puts "_______________________________________________"
 
-puts "Seeding default user"
+puts "Seeding default regular user"
 
-User.create(email: "user@mail.com", password: "password")
+User.create(email: "regular@mail.com", password: "password")
+
+puts "_______________________________________________"
+
+puts "Seeding admin user"
+
+User.create(email: "admin@mail.com", password: "password")
 
 puts "_______________________________________________"
 
