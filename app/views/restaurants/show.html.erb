@@ -1,6 +1,8 @@
 <h3>Your Restaurant in details</h3>
 <%# just testing result %>
-<%= image_tag @restaurant.image_url, class: 'image-thumbnail' %>
+<% if @restaurant.image.present? %>
+  <%= image_tag @restaurant.image_url, class: 'image-thumbnail' %>
+<% end %>
 <p> <%= @restaurant.name %></p>
 <p> <%= @restaurant.description %></p>
 <p> <%= @restaurant.address %></p>
