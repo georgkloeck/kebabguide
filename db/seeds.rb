@@ -80,7 +80,13 @@ puts "seeding Restaurants"
 
 puts "_______________________________________________"
 
-puts "Seeding users"
+puts "Seeding default user"
+
+User.create(email: "user@mail.com", password: "password")
+
+puts "_______________________________________________"
+
+puts "Seeding 10 random users"
 
   10.times do
     user = User.new
