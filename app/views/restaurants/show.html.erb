@@ -1,7 +1,7 @@
 <h3>Your Restaurant in details</h3>
 <%# just testing result %>
+<%= image_tag @restaurant.image_url, class: 'image-thumbnail' %>
 <p> <%= @restaurant.name %></p>
 <p> <%= @restaurant.description %></p>
 <p> <%= @restaurant.address %></p>
-
 <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
