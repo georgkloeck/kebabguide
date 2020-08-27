@@ -1,16 +1,19 @@
-<h3>Your Restaurant in details</h3>
-<%# just testing result %>
 <% if @restaurant.image.present? %>
   <%= image_tag @restaurant.image_url, class: 'image-thumbnail' %>
 <% end %>
-<p> <%= @restaurant.name %></p>
-<p> <%= @restaurant.description %></p>
+<h1> <%= @restaurant.name %></h1>
 <p> <%= @restaurant.address %></p>
+
+<h1>⭐ 3.5</h1>
+<p><b>1337 Kebabs rated</b></p>
 
 <h2> <%= @restaurant.cuisine.name %> Cuisine</h2>
 <p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
 
-<%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
+
+<div class="btn-red">
+  <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
+</div>
 
 
 <div class="review">
@@ -22,7 +25,7 @@
            <h4>Filling 1</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -30,7 +33,7 @@
            <h4>Filling 2</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -38,7 +41,7 @@
            <h4>Filling 3</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
   </div>
@@ -50,7 +53,7 @@
            <h4>Sauce 1</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -58,7 +61,7 @@
            <h4>Sauce 2</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -66,7 +69,7 @@
            <h4>Sauce 3</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
   </div>
@@ -79,7 +82,7 @@
          </div>
          <div class="score">
 
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -87,7 +90,7 @@
            <h4>Bread 2</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
       <div class="ingredient-review">
@@ -95,7 +98,7 @@
            <h4>Bread 3</h4>
          </div>
          <div class="score">
-           <h4>XXXXX</h4>
+           <h4>⭐⭐⭐⭐⭐</h4>
          </div>
       </div>
 
@@ -107,7 +110,7 @@
                <h4>Freshness</h4>
              </div>
              <div class="score">
-               <h4>XXXXX</h4>
+               <h4>⭐⭐⭐⭐⭐</h4>
              </div>
             </div>
         <div class="list">
@@ -123,13 +126,29 @@
                <h4>House Style</h4>
              </div>
              <div class="score">
-               <h4>XXXXX</h4>
+               <h4>⭐⭐⭐⭐⭐</h4>
              </div>
             </div>
         <div class="list">
           <p>Fresh lime, pinch of zumak</p>
         </div>
       </div>
+
+       <div class="kind-review">
+        <h3>Customer pics</h3>
+        <div class="line"></div>
+        <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+      </div>
 </div>
 
+<div class="btn-red">
+  <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
+</div>
 
+<div class="kind-review">
+        <h3><%= @restaurant.address %></h3>
+        <div class="line"></div>
+<div id="map"
+        style="width: 100%; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
