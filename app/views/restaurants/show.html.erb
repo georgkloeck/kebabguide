@@ -1,7 +1,6 @@
 <% if @restaurant.image.present? %>
-  <%= image_tag @restaurant.image_url, class: 'image-thumbnail' %>
+  <%= image_tag @restaurant.image_url, size: "375x250" %>
 <% end %>
-<%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
 
 <div class="profile">
   <div>
@@ -14,12 +13,8 @@
   </div>
 </div>
 
-
-
-
 <h2> <%= @restaurant.cuisine.name %> Cuisine</h2>
 <p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
-
 
 <!-- <div class="btn-red" >
   <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
