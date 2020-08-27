@@ -12,11 +12,19 @@
 @import "jquery-bar-rating/dist/themes/css-stars";
 
 // Your CSS partials
+@import "components/viewport";
+@import "components/list";
+@import "components/padding";
 @import "components/index";
 @import "components/button";
 @import "components/kind";
 @import "components/profile";
+@import "components/review";
 
 
 @import "pages/index";
 @import "pages/show";
+
+@import "components/main";
+
+
