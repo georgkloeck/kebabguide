@@ -1,5 +1,10 @@
 .kind{
+  padding: 0px 6px 0px 6px;
   display: flex;
   width: 100%;
   justify-content: space-between;
+
+  .h3{
+    padding: 0px 12px 0px 12px;
+  }
 }
