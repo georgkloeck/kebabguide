@@ -21,14 +21,17 @@
 <p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
 
 
-<div class="btn-red" >
+<!-- <div class="btn-red" >
   <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
-</div>
+</div> -->
 
+<button class="btn-red"> <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), class: "text-deco", method: :post %>
+</button>
 
 <div class="review">
   <div class="kind-review">
     <div class="kind">
+
           <div><h3>Fillings</h3></div>
           <div><p>Show all 5 fillings</p></div>
         </div>
@@ -166,9 +169,8 @@
       </div>
 </div>
 
-<div class="btn-red">
-  <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), method: :post %>
-</div>
+<button class="btn-red"> <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), class: "text-deco", method: :post %>
+</button>
 
 <div class="kind-review">
         <h3>Map</h3>
