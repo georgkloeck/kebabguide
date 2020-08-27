@@ -8,5 +8,4 @@ function selection()
   });
 }
 
-
 export {selection};

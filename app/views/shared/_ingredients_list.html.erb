@@ -1,0 +1,7 @@
+  <%# the list needs an argument passed in %>
+  <select id="fillings"  class="custom-select" >
+    <option selected>select a filling</option>
+    <%@fillings.each do |filling| %>
+    <option value="<%= filling.name %>"><%= filling.name  %></option>
+    <% end %>
+  </select>
