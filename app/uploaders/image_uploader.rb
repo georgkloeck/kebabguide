@@ -1,15 +1,18 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  # include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
   
   if Rails.env.production?
     storage :fog # S3
   else
-    storage :file # local filesytem on your machine (/public)
+    storage :file # local filesytem on my machine (/public)
   end
+
+  # include CarrierWave ::MimeTypes
+  # process :set_content_type
 
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
