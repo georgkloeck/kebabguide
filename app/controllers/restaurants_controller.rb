@@ -1,9 +1,9 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
-    @restuarants_mapped = Restaurant.geocoded # returns only gecoded restuarants
+    @restaurants_mapped = Restaurant.geocoded # returns only gecoded restaurants
     # creating markers
-    @markers = @restuarants_mapped.map do |restaurant|
+    @markers = @restaurants_mapped.map do |restaurant|
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
