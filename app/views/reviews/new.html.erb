@@ -1,46 +1,58 @@
 <p>review creation</p>
 <p><%= @review %></p>
 <p><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
-<p>Fillings</p>
+<div class="alert alert-info">
 
-<%= form_with model: @reviews do |f| %>
+  <%= flash.now[:success] = "Object successfully created"  %>
+</div>
+<%= form_with url: restaurant_reviews_path(@restaurant), local: true, method: :post do |f| %>
 <div>
+
+
   Fillings:
-  <%= f.select(:ingredients_review, options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "filling" }, :id, :name)) %>
-  <%= render 'shared/stars_rating' %>
-  <p><%=  %></p>
+  <%= link_to "+ choose filling", "#" %>
+  <p> <%= f.select("fillings", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "filling" }, :id, :name)) %>
+  <%= render 'shared/stars_rating', index: 1  %></p>
+
 </div>
 <div>
  Sauce:
-   <%= f.select(:ingrediens_review, options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "sauce" }, :id, :name)) %>
+ <p>
+   <%= f.select("sauce", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "sauce" }, :id, :name)) %>
+  <%= render 'shared/stars_rating', index: 2 %></p>
 
 </div>
 <div>
 Bread:
-   <%= f.select(:ingrediens_review, options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "bread" }, :id, :name)) %>
+   <%= f.select("bread", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "bread" }, :id, :name)) %>
+   <%= render 'shared/stars_rating', index: 3 %>
 </div>
+
 <div>
 Salad:
-    <%= f.select(:ingrediens_review, options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "salad" }, :id, :name)) %>
+    <%= f.select("salad", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "salad" }, :id, :name)) %>
+    <%= render 'shared/stars_rating', index: 4 %>
 </div>
+
 <div>
 Extra:
-    <%= f.select(:ingrediens_review, options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "extra" }, :id, :name)) %>
+    <%= f.select("extra", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "extra" }, :id, :name)) %>
+    <%= render 'shared/stars_rating', index: 5 %>
 </div>
-<%= submit_tag("Search") %>
+<br>
+<%= submit_tag("Save review") %>
 
 <% end %>
 <p>--------------------------------------</p>
-<%= link_to "+ choose filling", "#" %>
-<div class="w-25 ml-2">
-  <%= render 'shared/ingredients_list'  %>
-</div>
- <%= render 'shared/stars_rating' %>
+
+
 <p>--------------------------------------</p>
 <p id="demo"></p>
 
 <p id="stars"></p>
 
+<%#  restaurant_reviews POST   /restaurants/:restaurant_id/reviews(.:format) %>
+<%# No route matches [POST] "/restaurants/1/reviews/new" %>
 
 
 

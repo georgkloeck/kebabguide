@@ -7,5 +7,6 @@ class Restaurant < ApplicationRecord
   has_many :ingredient_reviews, through: :reviews
   has_many :ingredients, through: :ingredient_reviews
   geocoded_by :address
+  validates :name, presence: true
   after_validation :geocode, if: :will_save_change_to_address?
 end

@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
 
   def show
     @review = Review.find(params[:id])
-
   end
 
   def new
@@ -11,7 +10,7 @@ class ReviewsController < ApplicationController
     @ingredient_review_fillings = IngredientReview.new
     @ingredient_review = IngredientReview.new
     @user = current_user
-    @review = Review.create(restaurant: @restaurant, user: @user)
+    @review = Review.new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @ingredients = Ingredient.all
     @fillings = @ingredients.select { |ing| ing.kind == "filling" }
@@ -19,7 +18,10 @@ class ReviewsController < ApplicationController
 
   def create
     # for test
-    @review.save
+    if !@review.save
+    puts "error invoked"
+    # redirect_to later
+    end
   end
 
   def destroy
@@ -31,4 +33,9 @@ class ReviewsController < ApplicationController
   def find_restaurant
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
+
+  def review_params
+    params.permit!
+  end
 end
+
