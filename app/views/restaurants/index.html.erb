@@ -1,16 +1,38 @@
-<div class="container">
-<div class="row">
-  <div class="col sm-3">
+<div class="main">
+    <% counter = 0 %>
     <% @restaurants.each do |restaurant|%>
-    <ul>
-      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
-    </ul>
+      <% counter += 1 %>
+
+
+      <% if restaurant.image.present? %>
+        <%= image_tag restaurant.image_url, class: 'image-thumbnail' %>
+      <% else %>
+        <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+      <% end %>
+
+
+        <div class="profile">
+          <div>
+            <h1><%= link_to restaurant.name, restaurant_path(restaurant) %></h1>
+            <p> <%= restaurant.address %></p>
+          </div>
+          <div class="text-right">
+            <h1>⭐ 3.5</h1>
+            <p><b>1337 Kebabs rated</b></p>
+          </div>
+        </div>
+
+        <% if counter < @restaurants.count %>
+
+      <div class="kind-review">
+        <div class="line"></div>
+        <% end %>
+      </div>
+
     <% end %>
     <%# map div below integrate wherever you want when desigining %>
     <div id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  </div>
-</div>
 </div>
