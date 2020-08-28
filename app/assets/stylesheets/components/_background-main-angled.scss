@@ -1,0 +1,14 @@
+.background-main-angled {
+  background-color: $red;
+  color: white;
+  height: 400px;
+  width: 375px;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.background-main-angled h1 {
+  padding-left: 33px;
+  padding-top: 130px;
+  font-size: 32px;
+}
+
