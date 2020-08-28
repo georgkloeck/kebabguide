@@ -21,7 +21,9 @@
     <p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
   </div>
 
+  <div class="btn-box">
   <%= button_to "Rate your Kebab", restaurant_reviews_path(@restaurant), class: "btn-red text-deco", method: :post %>
+  </div>
 
   <div class="review">
     <div class="kind-review">
@@ -160,9 +162,10 @@
           <%= image_tag("hamdi.png", width: "100%", alt: "Edit Entry") %>
         </div>
   </div>
-
+  <div class="btn-box">
   <button class="btn-red"> <%= link_to "Rate your Kebab", restaurant_reviews_path(@restaurant), class: "text-deco", method: :post %>
   </button>
+  </div>
 
   <div class="review">
   <div class="kind-review">
