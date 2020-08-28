@@ -8,7 +8,7 @@
   <div class="profile">
     <div>
       <h1> <%= @restaurant.name %></h1>
-      <p> <%= @restaurant.address %></p>
+      <p> <%= @restaurant.address.split(",")[0] %></p>
     </div>
     <div class="text-right">
       <h1>⭐ 3.5</h1>
@@ -18,10 +18,11 @@
 
   <div class="review padding">
     <h2> <%= @restaurant.cuisine.name %> Cuisine</h2>
-    <p> <%= @restaurant.description %> Filler text lorem ispum, Filler text lorem ispum, Filler text lorem ispum,Filler text lorem ispum Filler text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispumFiller text lorem ispum </p>
+    <p> <%= @restaurant.description %> </p>
   </div>
 
   <div class="btn-box">
+
   <%= button_to "Rate your Kebab", restaurant_reviews_path(@restaurant), class: "btn-red text-deco", method: :post %>
   </div>
 
