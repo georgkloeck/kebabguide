@@ -1,0 +1,11 @@
+.cuisine-restaurant {
+  margin-top: 20px;
+  overflow: auto;
+  display: grid;
+  grid-template-columns: 150px 1fr;
+}
+
+.restaurant-name {
+  padding-top: 10px;
+  padding-left: 20px;
+}
