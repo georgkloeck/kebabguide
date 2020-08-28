@@ -4,3 +4,17 @@
   width: 100%;
   justify-content: space-between;
 }
+
+.hint-div{
+  width: 150px;
+  position: relative;
+}
+
+.hint-text{
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 0px;
+  margin-bottom: 8px;
+
+}
