@@ -5,4 +5,14 @@
   height: 5px;
   margin: 0px 0px 16px 0px;
   margin-top: -5px;
+  margin-bottom: -50px;
+}
+
+.search-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: black;
+  padding-top: 10px;
 }
