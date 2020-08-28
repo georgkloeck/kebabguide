@@ -14,7 +14,7 @@
         <div class="profile">
           <div>
             <h1><%= link_to restaurant.name, restaurant_path(restaurant) %></h1>
-            <p> <%= restaurant.address %></p>
+            <p> <%= restaurant.address.split(",")[0] %></p>
           </div>
           <div class="text-right">
             <h1>⭐ 3.5</h1>
