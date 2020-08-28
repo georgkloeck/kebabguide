@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+
   def index
     @restaurants = Restaurant.all
     @restaurants_mapped = Restaurant.geocoded # returns only gecoded restaurants
@@ -30,6 +31,10 @@ class RestaurantsController < ApplicationController
   end
 
   private
+
+  def find_restaurant
+    Restaurant.find(params[:id])
+  end
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :description, :cuisine_id, :image, :image_cache)
