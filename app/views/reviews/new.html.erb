@@ -10,19 +10,19 @@
 
 
   Fillings:
-  <%= link_to "+ choose filling", "#" %>
+  <%= link_to "+ choose filling", "#", id: "choose_filling" %>
   <p> <%= f.select("fillings", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "filling" }, :id, :name)) %>
   <%= render 'shared/stars_rating', index: 1  %></p>
 
 </div>
-<div>
+<div class="d-inline">
  Sauce:
  <p>
-   <%= f.select("sauce", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "sauce" }, :id, :name)) %>
+  <%= f.select("sauce", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "sauce" }, :id, :name)) %>
   <%= render 'shared/stars_rating', index: 2 %></p>
 
 </div>
-<div>
+<div class="d-inline">
 Bread:
    <%= f.select("bread", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "bread" }, :id, :name)) %>
    <%= render 'shared/stars_rating', index: 3 %>
@@ -38,6 +38,9 @@ Salad:
 Extra:
     <%= f.select("extra", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "extra" }, :id, :name)) %>
     <%= render 'shared/stars_rating', index: 5 %>
+</div>
+<div class="test-display">
+
 </div>
 <br>
 <%= submit_tag("Save review") %>
@@ -56,7 +59,14 @@ Extra:
 
 
 
-
+<script>
+  const element = document.getElementById('choose_filling');
+  element.addEventListener('click', () => {
+    html = "<p>clicked</p>"
+  const display = document.getElementById('test-display');
+  display.insertAdjacentHTML('beforeend', html);
+  });
+</script>
 
 
 

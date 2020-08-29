@@ -1,0 +1,2 @@
+"<p> <%= f.select("fillings", options_from_collection_for_select(Ingredient.all.select { |ing| ing.kind == "filling" }, :id, :name)) %>
+  <%= render 'shared/stars_rating', index: 1  %></p>"
