@@ -1,16 +1,14 @@
 <p>review creation</p>
-<p><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
-<p>Fillings</p>
-<p>--------------------------------------</p>
-<%= link_to "+ choose filling", "#" %>
+<p style="color:white;"><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
+<%= link_to "+ choose filling", anchor: "" %>
 <div class="container">
   <%= form_with url:restaurant_reviews_path(@restaurant), local: true, method: :post  do |f| %>
-    <%= render 'shared/subform', f: f, category: "filling", index: 1 %>
-    <%= render 'shared/subform', f: f, category: "sauce", index: 2 %>
-    <%= render 'shared/subform', f: f, category: "bread", index: 3 %>
-    <%= render 'shared/subform', f: f, category: "salad", index: 4 %>
-    <%= render 'shared/subform', f: f, category: "extra", index: 5 %>
-    <%= submit_tag("Save review") %>
+  <%= render 'shared/subform', f: f, category: "filling" %>
+  <%= render 'shared/subform', f: f, category: "sauce" %>
+  <%= render 'shared/subform', f: f, category: "bread" %>
+  <%= render 'shared/subform', f: f, category: "salad" %>
+  <%= render 'shared/subform', f: f, category: "extra" %>
+  <br>
+  <%= submit_tag("Save review") %>
   <% end %>
 </div>
-
