@@ -1,0 +1,6 @@
+<div>
+  <%= category.capitalize.pluralize %>:
+  <%= f.select("ingredient[][id]", options_from_collection_for_select(Ingredient.all.select { |ingredient| ingredient.kind == category }, :id, :name)) %>
+  <%= render 'shared/stars_rating', index: index %>
+
+</div>

@@ -12,17 +12,23 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @ingredient = IngredientReview.new
     @ingredients = Ingredient.all
-    @fillings = @ingredients.select { |ing| ing.kind == "filling" }
   end
 
   def create
-    @review = @restaurant.reviews.new(user: current_user)
-
-    if @review.save
+    if @review = Review.create(restaurant_id: @restaurant.id, user_id: current_user.id)
+      params[:ingredient].each do |ingredient|
+        ingredient_id = ingredient[:id]
+        ingredient_score = ingredient[:score]
+        IngredientReview.create(ingredient_id: ingredient_id, score: ingredient_score,  review_id: @review.id)
+      end
       redirect_to restaurant_review_path(@restaurant, @review)
-    else
-      render restaurant_path(@restaurant)
+      # if @review.save
     end
+
+      # redirect_to restaurant_review_path(@restaurant, @review)
+    # else
+      # render restaurant_path(@restaurant)
+    # end
   end
 
   def destroy
@@ -39,6 +45,7 @@ class ReviewsController < ApplicationController
   end
 
   def review_params
-    params.require(:review).permit(:restaurant_id, :user_id, :photos)
+    # params.require(:review).permit(:restaurant_id, :user_id, :photos)
+    params.permit!
   end
 end

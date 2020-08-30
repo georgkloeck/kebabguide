@@ -1,1 +1,12 @@
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %>
+<% if @review.ingredient_reviews.blank? %>
+<%= "empty reviews".capitalize  %>
+  <% else %>
+  <% @review.ingredient_reviews.each do |ingredient_review| %>
+  <br>
+  <p style="color:white;"><%= ingredient_review.ingredient.name  %></p>
+
+  <p class="review_rating_display" style="color:white;"><%= ingredient_review.score%>
+  </p>
+  <% end %>
+<% end %>
