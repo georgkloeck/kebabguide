@@ -1,32 +1,14 @@
 <p>review creation</p>
-<p><%= @review %></p>
-<p><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
-<p>Fillings</p>
-<p>--------------------------------------</p>
-<div class="w-25 ml-2">
-  <select id="fillings"  class="custom-select" >
-    <option selected>select a filling</option>
-    <%@fillings.each do |filling| %>
-    <option value=<%= filling.name %>><%= filling.name  %></option>
-    <% end %>
-  </select>
+<p style="color:white;"><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
+<%= link_to "+ choose filling", anchor: "" %>
+<div class="container">
+  <%= form_with url:restaurant_reviews_path(@restaurant), local: true, method: :post  do |f| %>
+  <%= render 'shared/subform', f: f, category: "filling" %>
+  <%= render 'shared/subform', f: f, category: "sauce" %>
+  <%= render 'shared/subform', f: f, category: "bread" %>
+  <%= render 'shared/subform', f: f, category: "salad" %>
+  <%= render 'shared/subform', f: f, category: "extra" %>
+  <br>
+  <%= submit_tag("Save review") %>
+  <% end %>
 </div>
-
-<select name="score1" id="review_rating">
-  <option value="1">1</option>
-  <option value="2">2</option>
-  <option value="3">3</option>
-  <option value="4">4</option>
-  <option value="5">5</option>
-</select>
-<p>--------------------------------------</p>
-<p id="demo"></p>
-<p id="stars"></p>
-
-
-
-
-
-
-
-
