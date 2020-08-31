@@ -1,5 +1,5 @@
 <div class="search-info">
-  <h2> Results for Turmstrasse </h2>
+  <h2> Results for <%= @query %> </h2>
 </div>
 
 <div class="main">
@@ -29,7 +29,7 @@
           </div>
         </div>
 
-        <% if counter < @restaurants.count %>
+        <% if counter < @restaurants.length %>
 
       <div class="kind-review">
         <div class="line-index"></div>

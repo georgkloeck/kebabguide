@@ -1,8 +1,18 @@
 class RestaurantsController < ApplicationController
 
   def index
-    @restaurants = Restaurant.all
-    @restaurants_mapped = Restaurant.geocoded # returns only gecoded restaurants
+    # Sow we can display teh search term
+    @query = params[:query] unless params[:query].nil?
+
+    # shows only near Restaurants
+    if params[:query].present?
+      @restaurants = Restaurant.near(params[:query], 3)
+      #                                               ^Kilometers
+    else
+      @restaurants = Restaurant.all
+    end
+
+    @restaurants_mapped = @restaurants.geocoded # returns only gecoded restaurants
     # creating markers
     @markers = @restaurants_mapped.map do |restaurant|
       {
@@ -32,6 +42,6 @@ class RestaurantsController < ApplicationController
 
   private
   def restaurant_params
-    params.require(:restaurant).permit(:name, :address, :description, :cuisine_id, :image, :image_cache)
+    params.require(:restaurant).permit(:name, :address, :description, :cuisine_id, :image, :image_cache, :query)
   end
 end
