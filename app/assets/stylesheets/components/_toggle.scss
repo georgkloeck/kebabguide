@@ -49,17 +49,18 @@
   bottom: 4px;
   background-color: #dad0ff;
   -webkit-transition: .4s;
-  transition: .4s;
+  transition: 0;
 }
 
 .slider:after {
   display: flex;
   content: "Map";
   padding: 14px;
-  margin-left: 240px;
+  margin-left: 223px;
+  margin-top:-0.75px;
   justify-content: space-between;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0;
+  transition: 0;
 }
 
 input:checked + .slider {
@@ -75,7 +76,8 @@ input:checked + .slider:before {
 
 input:checked + .slider:after {
   content: "List";
-  margin-left: 55px;
+  margin-top:-0.75px;
+  margin-left: 61px;
 }
 
 .slider.round {
