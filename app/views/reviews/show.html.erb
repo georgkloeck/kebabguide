@@ -4,9 +4,12 @@
   <% else %>
   <% @review.ingredient_reviews.each do |ingredient_review| %>
   <br>
-  <p style="color:white;"><%= ingredient_review.ingredient.name  %></p>
-
-  <div class="review_rating_show" style="color:white;"><%= ingredient_review.score%>
+  <div class="review_rating_show" style="color:white;">
+  <p style="color:white;"><%= ingredient_review.ingredient.name  %>
+    <% stars = ingredient_review.score %>
+    <% stars.times do %>
+      <i style="color:yellow;" class="far fa-star"></i>
+    <% end %></p>
   </div>
   <% end %>
 <% end %>
