@@ -7,11 +7,15 @@
 
 <div class="list-index">
 <div class="search-info">
+
   <div class="search-info-details">
     <h1> The best Kebabs </h1>
-    <h2> near #{"ADRESSE"} </h2>
+    <h2> near  <%= @query %> </h2>
   </div>
+
 </div>
+
+<% #raise %>
 
 <div class="main">
     <% counter = 0 %>
@@ -35,7 +39,7 @@
           </div>
         </div>
 
-        <% if counter < @restaurants.count %>
+        <% if counter < @restaurants.length %>
 
       <div class="kind-review">
         <div class="line-index"></div>
