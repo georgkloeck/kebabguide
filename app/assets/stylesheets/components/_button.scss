@@ -52,3 +52,38 @@
   justify-content: center;
   align-items: center;
 }
+
+.btn-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 40px;
+  background-color: #dad0ff;
+  color: white;
+  border-radius: 2px;
+  border-top-color: #bbb0ff;
+  font-size: 16px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.btn-reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  background-color: #dad0ff;
+  color: white;
+  border-radius: 2px;
+  border-top-color: #bbb0ff;
+  font-size: 16px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  padding: 15px;
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
