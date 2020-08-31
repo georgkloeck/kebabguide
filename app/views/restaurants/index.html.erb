@@ -1,5 +1,16 @@
+<div class="toogle-main" >
+  <label class="switch" style="z-index: 3">
+    <input type="checkbox">
+    <span class="slider round"></span>
+  </label>
+</div>
+
+<div class="list-index">
 <div class="search-info">
-  <h2> Results for Turmstrasse </h2>
+  <div class="search-info-details">
+    <h1> The best Kebabs </h1>
+    <h2> near #{"ADRESSE"} </h2>
+  </div>
 </div>
 
 <div class="main">
@@ -7,16 +18,11 @@
     <% @restaurants.each do |restaurant|%>
       <% counter += 1 %>
 
-
-
       <% if restaurant.image.present? %>
         <%= image_tag restaurant.image_url, class: 'image-thumbnail' %>
       <% else %>
         <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
       <% end %>
-
-
-
 
         <div class="profile">
           <div>
@@ -35,11 +41,35 @@
         <div class="line-index"></div>
         <% end %>
       </div>
-
     <% end %>
+
+</div>
+
     <%# map div below integrate wherever you want when desigining %>
-    <div id="map"
+    <div class="hide-content" id="map"
         style="width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
 </div>
+
+<script type="text/javascript">
+  document.querySelector(".switch").addEventListener("click", () => {
+    console.log("test");
+    if (document.querySelector(".switch input").checked) {
+      document.querySelector(".list-index").classList.add("hide-content");
+      document.querySelector("#map").classList.remove("hide-content");
+    }
+    else {
+      document.querySelector("#map").
+        classList.add("hide-content");
+        document.querySelector(".list-index").classList.remove("hide-content");
+    }
+  });
+// list = false, map true
+
+</script>
+
+
+
+
+
