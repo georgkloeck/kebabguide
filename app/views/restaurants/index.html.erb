@@ -1,3 +1,14 @@
+<nav class="navbar justify-content-between">
+  <% if user_signed_in? %>
+    <%= link_to "Back to search", "..", class: "nav-link"%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+  <% else %>
+
+    <%= link_to "Login", new_user_session_path, class: "nav-link"%>
+  <% end %>
+</nav>
+
+
 <div class="toogle-main" >
   <label class="switch" style="z-index: 3">
     <input type="checkbox">
@@ -10,12 +21,11 @@
 
   <div class="search-info-details">
     <h1> The best Kebabs </h1>
-    <h2> near  <%= @query %> </h2>
+      <h2> Results near <%=  @query.present? ? @query.split(",")[0] : "Berlin" %> </h2>
   </div>
 
 </div>
 
-<% #raise %>
 
 <div class="main">
     <% counter = 0 %>
@@ -30,7 +40,7 @@
 
         <div class="profile">
           <div>
-            <h1><%= link_to restaurant.name, restaurant_path(restaurant),:style=> "color:black"; %></h1>
+            <h1><%= link_to restaurant.name, restaurant_path(restaurant), :style=> "color:black"; %></h1>
             <p> <%= restaurant.address.split(",")[0] %></p>
           </div>
           <div class="text-right">
