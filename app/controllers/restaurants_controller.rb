@@ -25,6 +25,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @query = params[:query] unless params[:query].nil?
+
   end
 
   def new
@@ -40,7 +42,9 @@ class RestaurantsController < ApplicationController
     end
   end
 
+
   private
+
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :description, :cuisine_id, :image, :image_cache, :query)
   end
