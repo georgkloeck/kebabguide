@@ -1,3 +1,32 @@
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-review-show">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Rating submitted</h5>
+        </button>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </div>
+      <div class="modal-body">
+        <p> Thanks for rating <%= @restaurant.name %>! </p>
+        <p> So many more kebabs to eat </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btn-modal" data-dismiss="modal">Back to home</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %>
 <% if @review.ingredient_reviews.blank? %>
   <%= "empty reviews".capitalize  %>
@@ -13,3 +42,11 @@
     <% end %>
   </div>
 <% end %>
+
+
+<!-- <script type="text/javascript">
+  document.querySelector(".switch").addEventListener("click", () => {
+    console.log("test");
+    };
+  </script> -->
+
