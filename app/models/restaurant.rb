@@ -1,11 +1,12 @@
 class Restaurant < ApplicationRecord
-  mount_uploader :image, ImageUploader
+  # mount_uploader :image, ImageUploader
 
   belongs_to :cuisine
   has_many :reviews
   has_many :ingredient_reviews, through: :reviews
   has_many :ingredients, through: :ingredient_reviews
   geocoded_by :address
+  has_one_attached :image
 
   validates :name, presence: true
   validates :address, presence: true
