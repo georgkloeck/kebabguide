@@ -12,17 +12,16 @@
 <h1> Add your favorite Kebab here </h1>
 <div class="main">
   <%= form_for @restaurant, html: { multipart: true } do |f| %>
-    <div><%= f.label :'Restaurant name' %></div>
-    <div><%= f.text_field :name %></div>
-    <div><%= f.label :'Restaurant address' %></div>
-    <div><%= f.text_field :address %></div>
-    <div><%= f.label :'Restaurant description' %></div>
-    <div><%= f.text_area :description %></div>
+    <div><%= f.text_field :name, placeholder: 'name goes here' %></div>
+
+    <div><%= f.text_field :address, placeholder: 'address goes here' %></div>
+
+    <div><%= f.text_area :description, placeholder: 'description goes here' %></div>
     <div><%= f.select :cuisine_id, Cuisine.all.map {|c| [c.name, c.id]} %>
-    <%# this shows the image you already chose in the form if there is a validation error  %>
-    <div><%= image_tag(@restaurant.image_url, class: 'image-thumbnail') if @restaurant.image? %></div>
+
+    <div><%= image_tag(@restaurant.image_url) if @restaurant.image? %></div>
     <div><%= f.file_field :image %></div>
-    <div><%= f.hidden_field :image_cache %></div>
+    <%# f.hidden_field :image_cache %>
     </br>
     <div><%= f.submit "Save Restaurant" %></div>
   <% end %>

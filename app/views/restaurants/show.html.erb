@@ -10,12 +10,8 @@
 
 
 <div class="main">
-  <% if @restaurant.image.present? %>
-    <%= image_tag @restaurant.image_url, class: 'restaurant-show-image' %>
-  <% else %>
-    <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
-  <% end %>
 
+  <%= render partial: 'restaurant_image', locals: { restaurant: @restaurant } %>
   <div class="profile">
     <div>
       <h1> <%= @restaurant.name %></h1>

@@ -1,16 +1,41 @@
 class ImageUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
-  include CarrierWave::MiniMagick
+  # include CarrierWave::MiniMagick
+  include Cloudinary::CarrierWave
 
-  # Choose what kind of storage to use for this uploader:
-  
-  if Rails.env.production?
-    storage :fog # S3
-  else
-    storage :file # local filesytem on my machine (/public)
+  version :standard do 
+    process resize_to_fill: [200,200, :north]
   end
 
+  version :thumb do
+    process resize_to_fit: [50,50]
+  end
+
+  # process :convert => 'png'
+  # process :tags => ['post_picture_test']
+
+  # # resizing (resize to fit):
+
+  # version :medium_resized do 
+  #   process resize_to_fit: [375,250]
+  # end
+
+  # version :small_resized do
+  #   process resize_to_fit: [343,233]
+  # end
+
+  # # cropping (resize to fill):
+
+  # version :medium_cropped do 
+  #   process resize_to_fill: [375,250, :north]
+  # end
+
+  # version :small_cropped do
+  #   process resize_to_fill: [343,233, :north]
+  # end
+
+  # Choose what kind of storage to use for this uploader:
   # include CarrierWave ::MimeTypes
   # process :set_content_type
 
