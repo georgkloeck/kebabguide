@@ -29,15 +29,11 @@
 
 <div class="main">
     <% counter = 0 %>
+
     <% @restaurants.each do |restaurant|%>
       <% counter += 1 %>
 
-      <% if restaurant.image.present? %>
-        <%= image_tag restaurant.image_url, class: 'image-thumbnail' %>
-      <% else %>
-        <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
-      <% end %>
-
+      <%= render partial: 'restaurant_image', locals: { restaurant: restaurant } %>
         <div class="profile">
           <div>
             <h1><%= link_to restaurant.name, restaurant_path(restaurant), :style=> "color:black"; %></h1>
