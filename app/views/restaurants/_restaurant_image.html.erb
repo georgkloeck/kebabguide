@@ -1,0 +1,5 @@
+<% if @restaurant.image.key? %>
+  <%= cl_image_tag @restaurant.image.key %>
+<% else %>
+  <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+<% end %>
