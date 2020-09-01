@@ -32,11 +32,11 @@ gem 'fog-aws'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
+gem 'carrierwave', '~> 2.0'
 gem 'cloudinary', '~> 1.12.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'carrierwave', '~> 2.0'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails', groups: [:development, :test]
