@@ -4,7 +4,7 @@
     <title>Kebab</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= favicon_link_tag asset_path('favicon-16x16.png') %>
+    <%= favicon_link_tag asset_path('kebab.png') %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -13,7 +13,6 @@
 
   <body style="background-color: black;">
     <div class="viewport" style="max-width: 375px;">
-      <%= render 'shared/navbar' %>
       <%= render 'shared/flashes' %>
 
       <%= yield %>
