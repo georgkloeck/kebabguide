@@ -21,15 +21,16 @@
         placeholder: "Enter your address" %>
       <%= submit_tag "Search", class: "btn btn-lila-lg" %>
     <% end %>
+
   </div>
+
+
+
 </div>
 
-<div class="img-home">
-  <%= cl_image_tag("wsvuc4ut53l1dfw8ss3v6h2y7psr", width: 375, height: 250, style: "z-index: 0") %>
-</div>
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+  <script>
 
-<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-<script>
   (function() {
     var placesAutocomplete = places({
       appId: 'pl2PZFPQEVHX',
@@ -44,5 +45,8 @@
       $address.textContent = 'none';
     });
   })();
+
 </script>
-</div>
+
+
+
