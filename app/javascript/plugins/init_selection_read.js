@@ -1,21 +1,36 @@
-import { score } from "./fetch_score";
-import { initStarRating } from './init_star_rating';
 
-function selection(rating)
+
+function selection()
 { // initialize
-  const categories = ['#filling','#sauce','#extra','#bread','#salad']
-  const categoryOptionsList = document.querySelector('#filling');
-  const selectedElement = categoryOptionsList.options[categoryOptionsList.selectedIndex];
-  const ingredientId = selectedElement.value;
-  const tag = document.querySelector("#record");
-  // check
-  if (rating){
-    constructTag(tag, categoryOptionsList ,selectedElement, ingredientId);
-    createCheckbox("ingredients[][id]", ingredientId, ingredientId);
-    createCheckbox("ingredients[][score]", rating, ingredientId);
-    selectedElement.setAttribute('disabled', true);
-    displayStars(tag, rating);
-  }
+  const links = document.querySelectorAll('.link');
+  console.log(links);
+  links.forEach(link => {
+    link.addEventListener('click', (event) => {
+    event.preventDefault();
+    let category = link.dataset.category;
+    console.log(category);
+    const categoryOptionsList = document.querySelector(`#${category}`);
+    console.log(categoryOptionsList);
+    let rating = parseInt(categoryOptionsList.parentNode.querySelector('.br-current-rating').innerText);
+    console.log(rating);
+    const selectedElement = categoryOptionsList.options[categoryOptionsList.selectedIndex];
+    const ingredientId = selectedElement.value;
+    const tag = document.querySelector("#record");
+    // check
+    if (rating){
+      let newTag = constructTag(tag, categoryOptionsList ,selectedElement, ingredientId);
+      console.log(newTag);
+      createCheckbox("ingredients[][id]", ingredientId, ingredientId);
+      createCheckbox("ingredients[][score]", rating, ingredientId);
+      selectedElement.disabled = true;
+      displayStars(newTag, rating);
+    }
+
+
+  })
+  })
+
+  // const categories = ['#filling','#sauce','#extra','#bread','#salad']
   }
 
 const addDeleteIcon = (tag, element) => {
@@ -33,12 +48,12 @@ const displayStars = (tag, rating) => {
 
 const constructTag = (tag , list, element, ingId) => {
   const newTag = document.createElement("p");
-  // newTag.id =`filling_${counter}`;
   const tagText = document.createTextNode(element.text);
   tag.appendChild(newTag);
   newTag.appendChild(tagText)
   newTag.setAttribute("data-ing-id", ingId);
   addDeleteIcon(newTag, element);
+  return newTag;
 }
 
 
@@ -61,10 +76,6 @@ const addClickEvent = (element) => {
 
 }
 
-const toggleDisplay = (element) => {
-  element.classList.toggle('hidden');
-}
-
 const createCheckbox = (name, value, ingid) => {
   const form = document.querySelector('#form');
   const checkbox = document.createElement('input');
@@ -85,9 +96,6 @@ const getIngredientFromList = (ingId) => {
 }
 
 const deleteCheckbox = (id) => {
-  // let check = document.querySelector();
-  // let checkboxes = document.querySelectorAll([`data-cb-id=${id}`]);
-  // console.log(checkboxes);
   $("input:checkbox").each(function() {
     if ($(this).data("cb-id") == id) {
         $(this).remove();
@@ -96,8 +104,6 @@ const deleteCheckbox = (id) => {
 }
 
 
-// const target
-
 export {selection};
 
-/* document.querySelectorAll("[data-ingredient='4']") */
+/*  */

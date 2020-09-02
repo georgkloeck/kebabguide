@@ -9,7 +9,7 @@ const initStarRating = () => {
     // theme: 'fontawesome-stars',
     onSelect:function(value, text, event)
     {
-        selection(value);
+        // selection(value);
     }
   });
 };
