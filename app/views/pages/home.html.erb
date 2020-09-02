@@ -12,43 +12,37 @@
 <div class="main-background" style: "z-index: -1">
 <div class="background-main-angled">
   <h1 class="main-heading">Find the best kebab near you</h1>
-
-<div class="searchfield">
+  <div class="searchfield">
     <%= form_tag restaurants_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      id: "address",
-      class: "form-control",
-      placeholder: "Enter your address" %>
-    <%= submit_tag "Search", class: "btn btn-lila-lg" %>
-  <% end %>
-</div>
-
+      <%= text_field_tag :query,
+        params[:query],
+        id: "address",
+        class: "form-control",
+        placeholder: "Enter your address" %>
+      <%= submit_tag "Search", class: "btn btn-lila-lg" %>
+    <% end %>
+  </div>
 </div>
 
 <div class="img-home">
   <%= cl_image_tag("wsvuc4ut53l1dfw8ss3v6h2y7psr", width: 375, height: 250, style: "z-index: 0") %>
 </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
-  <script>
+<script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+<script>
   (function() {
     var placesAutocomplete = places({
       appId: 'pl2PZFPQEVHX',
       apiKey: '0cfc2b6768b43b6582261c291ba897bd',
       container: document.querySelector('#address')
     });
-
     var $address = document.querySelector('#address-value')
     placesAutocomplete.on('change', function(e) {
       $address.textContent = e.suggestion.value
     });
-
     placesAutocomplete.on('clear', function() {
       $address.textContent = 'none';
     });
-
   })();
-  </script>
+</script>
 </div>
-
