@@ -27,23 +27,23 @@
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
   <script>
+
   (function() {
     var placesAutocomplete = places({
       appId: 'pl2PZFPQEVHX',
       apiKey: '0cfc2b6768b43b6582261c291ba897bd',
       container: document.querySelector('#address')
     });
-
     var $address = document.querySelector('#address-value')
     placesAutocomplete.on('change', function(e) {
       $address.textContent = e.suggestion.value
     });
-
     placesAutocomplete.on('clear', function() {
       $address.textContent = 'none';
     });
-
   })();
-  </script>
+
+</script>
+
 
 

@@ -1,6 +1,2 @@
-<% @cuisine.restaurants.each do |restaurant| %>
-  <div class="cuisine-restaurant">
-    <%= link_to image_tag(restaurant.image.present? ? restaurant.image_url : "hamdi.png", class: 'restaurant-index-image'), restaurant_path(restaurant) %>
-    <div class="restaurant-name"><%= link_to restaurant.name, restaurant %></div>
-  </div>
-<% end %>
+<%= render partial: 'shared/nav' %>
+<%= render partial: 'shared/item_image', locals: { item: @cuisine } %>

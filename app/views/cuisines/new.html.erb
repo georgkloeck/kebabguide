@@ -1,3 +1,6 @@
+<%= render partial: 'shared/nav' %>
+
+<h1> Add your favorite Cuisine here </h1>
 <div class='main'>
   <%= form_for @cuisine, html: { multipart: true } do |f| %>
     <div><%= f.text_field :name, placeholder: 'please add the cuisine' %></div>
