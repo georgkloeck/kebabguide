@@ -1,3 +1,5 @@
+<%= render partial: 'shared/nav' %>
+
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %>
 <% if @review.ingredient_reviews.blank? %>
   <%= "empty reviews".capitalize  %>
