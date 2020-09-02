@@ -1,6 +1,6 @@
 
-const score = () => {
-
+const score = (rating) => {
+  return rating;
 }
 
 export {score};

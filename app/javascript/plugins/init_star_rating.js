@@ -1,5 +1,6 @@
 import "jquery-bar-rating";
 import $ from 'jquery'; // <-- if you're NOT using a Le Wagon template (cf jQuery section)
+import { score } from "./fetch_score";
 import { selection } from "./init_selection_read";
 
 const initStarRating = () => {
@@ -10,18 +11,7 @@ const initStarRating = () => {
     {
         selection(value);
     }
-
   });
-
-  // $('.review_rating_show').barrating('show');
-
-  // $('.review_rating_show').barrating({
-  //   // theme: 'css-stars',
-  //   // or
-  //   // theme: 'fontawesome-stars',
-  //   readonly: true
-  // });
-
 };
 
 export { initStarRating };

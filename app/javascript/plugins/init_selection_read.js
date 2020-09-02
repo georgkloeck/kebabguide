@@ -1,52 +1,53 @@
+import { score } from "./fetch_score";
+import { initStarRating } from './init_star_rating';
 
 function selection(rating)
 { // initialize
-  let formData = new FormData();
-  const optionsList = document.querySelector("#fillings");
-    const selectedElement = optionsList.options[optionsList.selectedIndex];
-    // console.log(selectedElement.value); value not nil
-    constructTag(selectedElement);
-    // add pair to hash before removing list selection
-    dataHash(formData, "selectedElement.value", rating);
-    formData.append("key","value");
-    removeListOption(optionsList, selectedElement);
-    displayStars(rating);
-    // hide/show list
-    if ($(optionsList).has('option'.length > 0)) {
-      toggleDisplay(optionsList);
-      console.log('not empty');
-    } else {
-      console.log('empty');
-      // toggleDisplay(optionsList);
-    }
+  // console.log(rating);
+  const optionsList = document.querySelector("#filling");
+  const selectedElement = optionsList.options[optionsList.selectedIndex];
+  const ingredientId = selectedElement.value;
+  const tag = document.querySelector("#record");
+  if (rating){
+    constructTag(tag, selectedElement);
+    createCheckbox("ingredients[][id]", ingredientId);
+    createCheckbox("ingredients[][score]", rating);
+    selectedElement.setAttribute('disabled', true);
+    displayStars(tag, rating);
+    // removeListOption(optionsList, selectedElement);
   }
 
-const displayStars = (rating) => {
+  if ($(optionsList).has('option'.length > 0)) {
+    // toggleDisplay(optionsList);
+    console.log('not empty');
+  } else {
+    console.log('empty');
+    // toggleDisplay(optionsList);
+  }
+  }
+
+const addDeleteIcon = (tag, element) => {
+  const html = '<i class="far fa-times-circle deleter"></i>';
+  tag.insertAdjacentHTML('afterbegin', html);
+  addClickEvent(element);
+  }
+
+const displayStars = (tag, rating) => {
   for (let step = 0; step < rating; step++){
     const html = '<i style="color:yellow;" class="far fa-star"></i>'
-    document.querySelector("#demo").insertAdjacentHTML('beforeend', html);
+    tag.insertAdjacentHTML('beforeend', html);
   }
 }
-const addDeleteIcon = (tag, element) => {
-const html = '<i class="far fa-times-circle deleter"></i>';
-tag.insertAdjacentHTML('afterbegin', html);
-addClickEvent(element);
-}
 
-const constructTag = (element) => {
+const constructTag = (tag , element) => {
   const newTag = document.createElement("p");
   // newTag.id =`filling_${counter}`;
   const tagText = document.createTextNode(element.text);
-  document.querySelector("#demo").appendChild(newTag);
+  tag.appendChild(newTag);
   newTag.appendChild(tagText);
   addDeleteIcon(newTag, element);
 }
 
-const dataHash = (formdata, key, value) => {
-  console.log(value);
-  formdata.append(key, value);
-  console.log(formdata);
-}
 
 const addClickEvent = (element) => {
   const icons = document.querySelectorAll(".deleter");
@@ -57,7 +58,7 @@ const addClickEvent = (element) => {
     const deleteTagParent = deleteTag.parentNode;
     deleteTagParent.removeChild(deleteTag);
     // console.log(element);
-    toggleHiddenListItems(element, "");
+    // toggleHiddenListItems(element, "");
   });
 });
 
@@ -73,6 +74,19 @@ const removeListOption = (list, option) => {
 
 const addListOption = (list, option) => {
   list.appendChild(option);
+}
+
+const createCheckbox = (name, value) => {
+  const form = document.querySelector('#form');
+  const checkbox = document.createElement('input');
+  checkbox.type = "checkbox";
+  checkbox.name = name;
+  checkbox.value = value;
+  checkbox.checked = true;
+  form.appendChild(checkbox);
+  // checkbox.display = none;
+  // checkbox.id = "id"
+
 }
 
 export {selection};

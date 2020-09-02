@@ -1,5 +1,8 @@
-<div class="list-group" multiple>
-  <%= category.capitalize.pluralize %>:
-  <%= f.select("fillings", options_from_collection_for_select(Ingredient.all.select { |ingredient| ingredient.kind == category }, :id, :name, {:class => 'form-control'})) %>
+<div class="list-group" >
+<p style="color:white;"><%= category.capitalize.pluralize %>:</p>
+
+  <%= f.select(category, options_from_collection_for_select(Ingredient.all.select { |ingredient| ingredient.kind == category }, :id, :name, {:class => 'form-control'})) %>
   <%= render 'shared/stars_rating' %>
 </div>
+
+<%# name: categories[][id][score] %>
