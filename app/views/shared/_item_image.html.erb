@@ -1,0 +1,5 @@
+<% if item.image.attached? %>
+  <%= cl_image_tag item.image.key, width: 375, height: 200, crop: 'scale' %>
+<% else %>
+  <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+<% end %>
