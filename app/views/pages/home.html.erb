@@ -1,24 +1,29 @@
-<div class="main-background" style: "z-index: -1">
-<div class="background-main-angled">
-  <h1 class="main-heading">Find the best kebab near you</h1>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-3">
+    <div class="background-main-angled">
+      <h1 class="main-heading">Find the best kebab near you</h1>
 
-<div class="searchfield">
-    <%= form_tag restaurants_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      id: "address",
-      class: "form-control",
-      placeholder: "Enter your address" %>
-    <%= submit_tag "Search", class: "btn btn-lila-lg" %>
-  <% end %>
+    <div class="searchfield">
+        <%= form_tag restaurants_path, method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          id: "address",
+          class: "form-control",
+          placeholder: "Enter your address" %>
+        <%= submit_tag "Search", class: "btn btn-lila-lg" %>
+      <% end %>
+    </div>
+    </div>
+  </div>
+    <div class="img-home">
+      <%= image_tag("https://kebabguide.s3.eu-central-1.amazonaws.com/assets/Do%CC%88ner_home.jpg", size: "375x250", style: "z-index: 0") %>
+    </div>
+  </div>
+
+
+
 </div>
-
-</div>
-
-<div class="img-home">
-  <%= image_tag("https://kebabguide.s3.eu-central-1.amazonaws.com/assets/Do%CC%88ner_home.jpg", size: "375x250", style: "z-index: 0") %>
-</div>
-
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
   <script>
@@ -40,5 +45,5 @@
 
   })();
   </script>
-</div>
+
 
