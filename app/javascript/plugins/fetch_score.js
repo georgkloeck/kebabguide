@@ -1,0 +1,6 @@
+
+const score = () => {
+
+}
+
+export {score};

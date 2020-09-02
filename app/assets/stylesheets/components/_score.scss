@@ -1,3 +1,16 @@
 .score{
   display: flex;
 }
+// test pls dont remove
+.hidden {
+display: none;
+}
+
+.deleter {
+  color: yellow;
+}
+
+.deleter:hover {
+  font-size: larger;
+  color: red;
+}

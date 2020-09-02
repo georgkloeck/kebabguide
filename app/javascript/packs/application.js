@@ -30,7 +30,8 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
-import { selection, stars } from '../plugins/init_selection_read';
+import { selection } from '../plugins/init_selection_read';
+import {score } from '../plugins/fetch_score.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -38,4 +39,5 @@ document.addEventListener('turbolinks:load', () => {
   initMapbox();
   initStarRating();
   selection();
+  score();
 });

@@ -1,5 +1,9 @@
 <p>review creation</p>
 <p style="color:white;"><%= @restaurant.id %> -- <%= @restaurant.name %>-- <%= @user.email %></p>
+<div id="demo" style="color:white;">
+ <p id="star" style="color:white;">stars:</p>
+</div>
+
 <%= link_to "+ choose filling", anchor: "" %>
 <div class="container">
   <%= form_with url:restaurant_reviews_path(@restaurant), local: true, method: :post  do |f| %>
@@ -9,6 +13,11 @@
   <%= render 'shared/subform', f: f, category: "salad" %>
   <%= render 'shared/subform', f: f, category: "extra" %>
   <br>
+    <select name="ingredient[][id]" id="hiddenlist" class="hidden"></select>
+    <select name="ingredient[][score]" id="hiddenratinglist" class="hidden"></select>
   <%= submit_tag("Save review") %>
   <% end %>
 </div>
+
+
+<%# onChange="myNewFunction(this.selectedIndex);" %>

@@ -15,6 +15,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    raise
     if @review = Review.create(restaurant_id: @restaurant.id, user_id: current_user.id)
       params[:ingredient].each do |ingredient|
         ingredient_id = ingredient[:id]
