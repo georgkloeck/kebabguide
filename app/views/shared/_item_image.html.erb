@@ -1,5 +1,5 @@
 <% if item.image.attached? %>
-  <%= cl_image_tag item.image.key, width: 375, height: 200, crop: 'scale' %>
+  <%= link_to_if(controller.action_name == 'index', (cl_image_tag item.image.key, width: 375, height: 200, crop: 'scale'), polymorphic_path(item)) %>
 <% else %>
-  <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+  <%= link_to_if(controller.action_name == 'index', image_tag("hamdi.png", size: "375x250", alt: "Edit Entry"), polymorphic_path(item)) %>
 <% end %>
