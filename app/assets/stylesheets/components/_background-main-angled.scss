@@ -2,7 +2,7 @@
   background-color: $red;
   color: white;
   height: 400px;
-  width: 375px;
+  width: auto;
   overflow: visible;
 }
 
@@ -10,5 +10,15 @@
   padding-left: 33px;
   padding-top: 130px;
   font-size: 32px;
+  overflow: hidden;
+  margin: 15px;
+}
+
+.img-home {
+  margin-top: 50px;
+  width: auto;
+  height: 250px;
+     background-size: cover;
+
 }
 

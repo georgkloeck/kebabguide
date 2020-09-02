@@ -1,10 +1,10 @@
 .form-main {
-  padding-left: 30px;
   padding-top: 30px;
 }
 
 .form-control {
-  width: 180px;
+  min-width: 180px;
+  max-width: 300px;
   height: 64px;
   color: rgb(179, 179, 179);
   font-size: 20px;
@@ -20,7 +20,7 @@
 }
 
 .algolia-places {
-  width: 180px;
+  width: auto;
 }
 
 .ap-input-icon {
@@ -31,7 +31,7 @@
   height: 64px;
   display: flex;
   margin-top: 33px;
-  margin-left: 33px;
+  justify-content: center;
 }
 
 .ap-dataset-places {
