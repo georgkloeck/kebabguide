@@ -55,7 +55,7 @@ const addClickEvent = (element) => {
         console.log(match);
       } else {console.log("match not found");}
       deleteTagParent.removeChild(deleteTag);
-      // deleteCheckbox(ingId);
+      deleteCheckbox(ingId);
   });
 });
 
@@ -84,10 +84,17 @@ const getIngredientFromList = (ingId) => {
   document.querySelector(`option[value="${ingId}"]`).disabled = false;
 }
 
-// const deleteCheckbox = (id) => {
-//   let checkboxes = document.querySelectorAll([`data-cb-id=${id}`]);
-//   console.log(checkboxes);
-// }
+const deleteCheckbox = (id) => {
+  // let check = document.querySelector();
+  // let checkboxes = document.querySelectorAll([`data-cb-id=${id}`]);
+  // console.log(checkboxes);
+  $("input:checkbox").each(function() {
+    if ($(this).data("cb-id") == id) {
+        $(this).remove();
+    }
+  });
+}
+
 
 // const target
 
