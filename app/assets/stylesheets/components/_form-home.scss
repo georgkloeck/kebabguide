@@ -32,6 +32,12 @@
   display: flex;
   margin-top: 33px;
   justify-content: center;
+  form {
+    display: flex;
+    .btn-lila-lg {
+      top: 0;
+    }
+  }
 }
 
 .ap-dataset-places {
