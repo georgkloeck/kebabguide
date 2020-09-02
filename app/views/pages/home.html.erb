@@ -1,3 +1,4 @@
+
 <nav class="navbar justify-content-between">
   <% if user_signed_in? %>
     <%= link_to "Kebab.guide", "..", class: "nav-link"%>
@@ -8,24 +9,25 @@
   <% end %>
 </nav>
 
-
-<div class="main-background" style: "z-index: -1">
-<div class="background-main-angled">
-  <h1 class="main-heading">Find the best kebab near you</h1>
-  <div class="searchfield">
-    <%= form_tag restaurants_path, method: :get do %>
-      <%= text_field_tag :query,
-        params[:query],
-        id: "address",
-        class: "form-control",
-        placeholder: "Enter your address" %>
-      <%= submit_tag "Search", class: "btn btn-lila-lg" %>
-    <% end %>
-
+<div class="container.fluid">
+  <div class="product-main">
+        <div class="background-main-angled">
+         <h1 class="main-heading">Find the best kebab near you</h1>
+          <div class="searchfield">
+            <%= form_tag restaurants_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                id: "address",
+                class: "form-control",
+                placeholder: "Enter your address" %>
+              <%= submit_tag "Search", class: "btn btn-lila-lg" %>
+            <% end %>
+          </div>
+        </div>
+    <div class="img-home">
+      <img src="https://res.cloudinary.com/da0x6acta/image/upload/v1599049128/kebab-main.jpg" style="max-width: 500px;">
+    </div>
   </div>
-
-
-
 </div>
 
   <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
