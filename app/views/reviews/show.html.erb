@@ -1,18 +1,35 @@
-<%= render partial: 'shared/nav' %>
+<nav class="navbar justify-content-between">
+  <% if user_signed_in? %>
+    <%= link_to "Back", :back, class: "nav-link"%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+  <% else %>
 
-<%= link_to @restaurant.name, restaurant_path(@restaurant) %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link"%>
+  <% end %>
+</nav>
+
+<div class="background-show container">
+  <div class="show-top-info">
+<h1 style="color:black;"> Submitted: <%= @restaurant.name %>    </h1>
+</div>
+<div class="line-review"></div>
 <% if @review.ingredient_reviews.blank? %>
 
   <%= "empty reviews".capitalize  %>
   <% else %>
   <% @review.ingredient_reviews.each do |ingredient_review| %>
   <br>
-  <div class="review_rating_show" style="color:white;">
-    <p style="color:white;"><%= ingredient_review.ingredient.name  %>
+  <div class="review_rating_show ratings-overview" style="color:black;">
+    <p style="color:black;"><%= ingredient_review.ingredient.name  %>
     <% stars = ingredient_review.score %>
     <% stars.times do %>
-      <i style="color:yellow;" class="far fa-star"></i>
+      <i style="color:#edb867;" class="fas fa-star"></i>
     <% end %></p>
     <% end %>
-  </div>
+
 <% end %>
+</div>
+
+</div>
+
+

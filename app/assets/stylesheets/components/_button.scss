@@ -89,6 +89,7 @@
   margin-top: 30px;
 }
 
+
 // css to links on review#new
 .link {
   color: white;
@@ -97,4 +98,11 @@
   cursor: pointer;
   color: blue;
 }
+
+.btn-red input {
+  background-color: $red;
+  border-width: 0;
+  color: white;
+}
+
 
