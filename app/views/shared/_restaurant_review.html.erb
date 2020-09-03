@@ -1,11 +1,12 @@
       <% ingredients = Ingredient.all.select { |ingredient| ingredient.kind == category } %>
     <div class="kind-review">
       <div class="kind">
-        <p>rendered</p>
+        <p></p>
             <div><h3><%= category.capitalize %></h3></div>
           <div class="hint-div">
-          <p class="hint-text">Show all 5 <%= category.capitalize %>s</p>
+          <p class="hint-text"> </p>
           </div>
+      </div>
           <div class="line"></div>
         <% ingredients.each do |ingredient| %>
           <% @restaurant.subratings.each do |key, value|  %>
@@ -15,15 +16,14 @@
                 <h4><%= restaurant.ingredients.find(key).name  %></h4>
               </div>
             <div class="score">
-              <% value.times do %>
-              <h4>⭐</h4>
-              <% end %>
+              <h4><% value.times do %>⭐<% end %>
+              </h4>
             </div>
           </div>
           <% end %>
         <% end %>
       <% end %>
-      </div>
+
     </div>
 
 
