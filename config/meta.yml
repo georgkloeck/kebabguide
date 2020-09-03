@@ -1,0 +1,6 @@
+
+meta_product_name: "Kabab.expert"
+meta_title: "Kabab.expert - find the best Kebabs near you"
+meta_description: "Berlins #1 Kebab rating plattform. Find new restaurants, learn about berlins divers street-meat culture and rate you favorites."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
