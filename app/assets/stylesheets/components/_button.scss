@@ -93,10 +93,11 @@
 // css to links on review#new
 .link {
   color: white;
+  margin-top: -1px;
 }
 .link:hover {
   cursor: pointer;
-  color: blue;
+  color: white;
 }
 
 .btn-red input {
