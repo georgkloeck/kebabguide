@@ -93,7 +93,7 @@ const createCheckbox = (name, value, ingid) => {
   checkbox.checked = true;
   checkbox.setAttribute("data-cb-id", ingid);
   form.appendChild(checkbox);
-  // checkbox.display = none;
+  checkbox.style.visibility = "hidden";
   // checkbox.id = "id"
 
 }
