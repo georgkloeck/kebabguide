@@ -2,8 +2,9 @@
 <p style="color:white;"><%= category.capitalize.pluralize %>:</p>
 
   <%= f.select(category, options_from_collection_for_select(Ingredient.all.select { |ingredient| ingredient.kind == category }, :id, :name, {class: 'form-control' })) %>
-  <p class="link" style="color:white;" data-category="<%=category %>"><i class="fas fa-plus-circle">
-  </i><%= " choose a #{category.capitalize}" %><%= render 'shared/stars_rating' %>
+  <p class="link" data-category="<%=category %>"><i class="fas fa-plus-circle">
+  </i><%= " choose a #{category.capitalize}" %>
+  <%= render 'shared/stars_rating' %>
   </p>
 
 </div>
