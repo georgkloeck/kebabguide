@@ -29,7 +29,7 @@
 
   <div class="btn-box">
 
-  <%= button_to "Rate your Kebab", new_restaurant_review_path(@restaurant), class: "btn-red text-deco", method: :post %>
+  <%= button_to "Rate your Kebab", new_restaurant_review_path(@restaurant), method: :get, class: "btn-red text-deco" %>
   </div>
   <div class="review">
     <% categories = %w[filling sauce bread salad extra] %>
