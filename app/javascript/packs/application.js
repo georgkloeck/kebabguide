@@ -32,6 +32,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initStarRating } from '../plugins/init_star_rating';
 import { selection } from '../plugins/init_selection_read';
 import {score } from '../plugins/fetch_score.js';
+import {initToggleButton} from '../components/toggle_button.js';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,6 +41,7 @@ document.addEventListener('turbolinks:load', () => {
   initStarRating();
   selection();
   score();
+  initToggleButton();
 });
 
 

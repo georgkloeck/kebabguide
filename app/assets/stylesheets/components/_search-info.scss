@@ -1,6 +1,6 @@
 .search-info {
   display: flex;
-  justify-content: center;
+  justify-content: center !important;
   align-items: center;
   background-color: white;
   color: black;
@@ -11,6 +11,11 @@
 
 .search-info-details {
   padding-top: 40px;
+  justify-content: center ;
+}
+
+.search-info-details h1 {
+  padding-left: 40px;
 }
 
 .search-info-details h2 {
