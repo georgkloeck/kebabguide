@@ -1,6 +1,7 @@
 
 
 function selection()
+
 { // initialize
   const links = document.querySelectorAll('.link');
   console.log(links);
@@ -71,6 +72,7 @@ const addClickEvent = (element) => {
       } else {console.log("match not found");}
       deleteTagParent.removeChild(deleteTag);
       deleteCheckbox(ingId);
+
   });
 });
 
@@ -105,5 +107,3 @@ const deleteCheckbox = (id) => {
 
 
 export {selection};
-
-/*  */

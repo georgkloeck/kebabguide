@@ -1,5 +1,8 @@
+<%= render partial: 'shared/nav' %>
+
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %>
 <% if @review.ingredient_reviews.blank? %>
+
 <%= "empty reviews".capitalize  %>
   <% else %>
   <% @review.ingredient_reviews.each do |ingredient_review| %>
@@ -10,6 +13,6 @@
     <% stars.times do %>
       <i style="color:yellow;" class="far fa-star"></i>
     <% end %></p>
+
   </div>
-  <% end %>
 <% end %>

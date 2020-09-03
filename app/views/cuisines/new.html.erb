@@ -1,7 +1,15 @@
-<%= form_for @cuisine, html: { multipart: true } do |f| %>
-  <div><%= f.text_field :name %></div>
-  <div><%= image_tag(@cuisine.image_url, class: 'image-thumbnail') if @cuisine.image? %></div>
-  <div><%= f.file_field :image %></div>
-  <div><%= f.hidden_field :image_cache %></div>
-  <div><%= f.submit "Save Cuisine" %></div>
-<% end %>
+<%= render partial: 'shared/nav' %>
+
+<h1> Add your favorite Cuisine here </h1>
+<div class='main'>
+  <%= form_for @cuisine, html: { multipart: true } do |f| %>
+    <div><%= f.text_field :name, placeholder: 'please add the cuisine' %></div>
+    </br>
+    <div><%= f.text_area :description, placeholder: 'add a description here' %></div>
+    <div><%= image_tag(@cuisine.image_url) if @cuisine.image? %></div>
+    <div><%= f.file_field :image %></div>
+    <div><%# f.hidden_field :image_cache %></div>
+    </br>
+    <div><%= f.submit "Save Cuisine" %></div>
+  <% end %>
+</div>

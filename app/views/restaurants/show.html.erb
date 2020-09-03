@@ -1,10 +1,14 @@
-<div class="main">
-  <% if @restaurant.image.present? %>
-    <%= image_tag @restaurant.image_url, class: 'restaurant-show-image' %>
+<nav class="navbar justify-content-between">
+  <% if user_signed_in? %>
+    <%= link_to "Back to search results", :back, class: "nav-link"%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
   <% else %>
-    <%= image_tag("hamdi.png", size: "375x250", alt: "Edit Entry") %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link"%>
   <% end %>
+</nav>
 
+<div class="main">
+  <%= render partial: 'shared/item_image', locals: { item: @restaurant } %>
   <div class="profile">
     <div>
       <h1> <%= @restaurant.name %></h1>

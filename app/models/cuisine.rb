@@ -1,5 +1,4 @@
 class Cuisine < ApplicationRecord
-  mount_uploader :image, ImageUploader
-
+  has_one_attached :image
   has_many :restaurants
 end

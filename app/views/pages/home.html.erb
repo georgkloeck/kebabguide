@@ -1,15 +1,54 @@
-<div class="background-main-angled">
-    <h1 class="main-heading">Find the best kebab near you</h1>
-  <div class="form-main">
-    <form class="form-inline">
-      <input class="form-control" type="search" placeholder="Turmstrasse"  aria-label="Search" style="
-    z-index: 3">
-       <%= link_to restaurants_path do %>
-      <button class="btn-lila-lg" type="submit"><strong>Find</strong></button>
-     <% end %>
-   </form>
+
+<nav class="navbar justify-content-between">
+  <% if user_signed_in? %>
+    <%= link_to "Kebab.guide", "..", class: "nav-link"%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+  <% else %>
+
+    <%= link_to "Login", new_user_session_path, class: "nav-link"%>
+  <% end %>
+</nav>
+
+<div class="container.fluid">
+  <div class="product-main">
+        <div class="background-main-angled">
+         <h1 class="main-heading">Find the best kebab near you</h1>
+          <div class="searchfield">
+            <%= form_tag restaurants_path, method: :get do %>
+              <%= text_field_tag :query,
+                params[:query],
+                id: "address",
+                class: "form-control",
+                placeholder: "Enter your address" %>
+              <%= submit_tag "Search", class: "btn btn-lila-lg" %>
+            <% end %>
+          </div>
+        </div>
+    <div class="img-home">
+      <img src="https://res.cloudinary.com/da0x6acta/image/upload/v1599049128/kebab-main.jpg" style="max-width: 500px;">
+    </div>
   </div>
 </div>
-<div class="img-home">
-<%= image_tag("https://kebabguide.s3.eu-central-1.amazonaws.com/assets/Do%CC%88ner_home.jpg", size: "375x250") %>
-</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/places.js@1.19.0"></script>
+  <script>
+
+  (function() {
+    var placesAutocomplete = places({
+      appId: 'pl2PZFPQEVHX',
+      apiKey: '0cfc2b6768b43b6582261c291ba897bd',
+      container: document.querySelector('#address')
+    });
+    var $address = document.querySelector('#address-value')
+    placesAutocomplete.on('change', function(e) {
+      $address.textContent = e.suggestion.value
+    });
+    placesAutocomplete.on('clear', function() {
+      $address.textContent = 'none';
+    });
+  })();
+
+</script>
+
+
+

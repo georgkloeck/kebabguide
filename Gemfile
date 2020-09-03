@@ -26,17 +26,16 @@ gem 'rails_admin', '~> 2.0'
 gem 'faker'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
-gem 'fog-aws'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'geocoder'
 gem 'devise'
+gem 'carrierwave', '~> 2.0'
 gem 'cloudinary', '~> 1.12.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
-gem 'carrierwave', '~> 2.0'
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'
   gem 'dotenv-rails', groups: [:development, :test]

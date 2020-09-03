@@ -2,13 +2,23 @@
   background-color: $red;
   color: white;
   height: 400px;
-  width: 375px;
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  width: auto;
+  overflow: visible;
 }
 
 .background-main-angled h1 {
   padding-left: 33px;
   padding-top: 130px;
   font-size: 32px;
+  overflow: hidden;
+  margin: 15px;
+}
+
+.img-home {
+  margin-top: 50px;
+  width: auto;
+  height: 250px;
+     background-size: cover;
+
 }
 
