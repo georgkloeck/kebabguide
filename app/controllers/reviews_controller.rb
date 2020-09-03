@@ -10,13 +10,12 @@ class ReviewsController < ApplicationController
     @user = current_user
     @review = Review.new
     @restaurant = Restaurant.find(params[:restaurant_id])
-    @ingredient = IngredientReview.new
-    @ingredients = Ingredient.all
   end
 
   def create
+    # raise
     if @review = Review.create(restaurant_id: @restaurant.id, user_id: current_user.id)
-      params[:ingredient].each do |ingredient|
+      params[:ingredients].each do |ingredient|
         ingredient_id = ingredient[:id]
         ingredient_score = ingredient[:score]
         IngredientReview.create(ingredient_id: ingredient_id, score: ingredient_score,  review_id: @review.id)
@@ -24,11 +23,6 @@ class ReviewsController < ApplicationController
       redirect_to restaurant_review_path(@restaurant, @review)
       # if @review.save
     end
-
-      # redirect_to restaurant_review_path(@restaurant, @review)
-    # else
-      # render restaurant_path(@restaurant)
-    # end
   end
 
   def destroy
