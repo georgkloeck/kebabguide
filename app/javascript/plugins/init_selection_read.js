@@ -8,13 +8,19 @@ function selection()
   links.forEach(link => {
     link.addEventListener('click', (event) => {
     event.preventDefault();
+    // stop propagation
     let category = link.dataset.category;
-    console.log(category);
+    // console.log(category);
     const categoryOptionsList = document.querySelector(`#${category}`);
     console.log(categoryOptionsList);
     let rating = parseInt(categoryOptionsList.parentNode.querySelector('.br-current-rating').innerText);
     console.log(rating);
     const selectedElement = categoryOptionsList.options[categoryOptionsList.selectedIndex];
+    // console.dir(selectedElement);
+    if (selectedElement.disabled === true){
+      window.alert('you have already selected this one')
+      return
+    }
     const ingredientId = selectedElement.value;
     const tag = document.querySelector("#record");
     // check
