@@ -1,12 +1,16 @@
 <div id="<%= category %>s"class="list-group" >
-<p style="color:white;"><%= category.capitalize.pluralize %>:</p>
+<h3 style="color:black;"><%= category.capitalize.pluralize %>:</h3>
 
   <%= f.select(category, options_from_collection_for_select(Ingredient.all.select { |ingredient| ingredient.kind == category }, :id, :name, {class: 'form-control' })) %>
-  <p class="link" style="color:white;" data-category="<%=category %>"><i class="fas fa-plus-circle">
-  </i><%= " choose a #{category.capitalize}" %><%= render 'shared/stars_rating' %>
-  </p>
+  <h5 class="link" style="color:black;" data-category="<%=category %>">
+    <%= render 'shared/stars_rating' %>
+    <br>
+    <br>
+    <i class="fas fa-plus" style="color:#FF382B";></i><%= " choose a #{category}" %>
+  </h5>
 
 </div>
+
 
 <%# add datasets to subform %>
 <%# every el wit dataset ing=id, **%>

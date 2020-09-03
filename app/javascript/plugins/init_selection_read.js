@@ -35,14 +35,14 @@ function selection()
   }
 
 const addDeleteIcon = (tag, element) => {
-  const html = '<i class="far fa-times-circle deleter"></i>';
+  const html = '<i style="color:#0E0000;"class="fas fa-minus deleter"></i>';
   tag.insertAdjacentHTML('afterbegin', html);
   addClickEvent(element);
   }
 
 const displayStars = (tag, rating) => {
   for (let step = 0; step < rating; step++){
-    const html = '<i style="color:yellow;" class="far fa-star"></i>'
+    const html = '<i style="color:#edb867;" class="fas fa-star"></i>'
     tag.insertAdjacentHTML('beforeend', html);
   }
 }
