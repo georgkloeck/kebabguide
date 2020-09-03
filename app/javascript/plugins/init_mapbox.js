@@ -39,5 +39,5 @@ const initMapbox = () => {
 };
 
 var mapDiv = document.getElementById('map');
-if (mapDiv.style.visibility === true) map.resize();
+// if (mapDiv.style.visibility === true) {map.resize()};
 export { initMapbox };

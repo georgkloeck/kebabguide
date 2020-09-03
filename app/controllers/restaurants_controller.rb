@@ -33,8 +33,8 @@ class RestaurantsController < ApplicationController
         @score_sum += ing_review.score
       end
     end
-    @test = @restaurant.ingredient_reviews.count
-    @average_rating = @score_sum / @test.to_f.round(2)
+    @subreview_count = @restaurant.ingredient_reviews.count
+    @average_rating = @score_sum.to_f.round(2) / @subreview_count
   end
 
   def new
