@@ -24,9 +24,17 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @score_sum = 0
+    @subreview_count = 0
     @restaurant = Restaurant.find(params[:id])
     @query = params[:query] unless params[:query].nil?
-
+    @restaurant.reviews.each do |review|
+      review.ingredient_reviews.each do |ing_review|
+        @score_sum += ing_review.score
+      end
+    end
+    @test = @restaurant.ingredient_reviews.count
+    @average_rating = @score_sum / @test.to_f.round(2)
   end
 
   def new

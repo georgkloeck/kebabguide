@@ -15,8 +15,10 @@
       <p> <%= @restaurant.address.split(",")[0] %></p>
     </div>
     <div class="text-right">
-      <h1>⭐ 3.5</h1>
-      <p><b>1337 Kebabs rated</b></p>
+      <%=  %>
+      <h1>⭐ <%= @average_rating %></h1>
+
+      <p><b><%= @restaurant.reviews.count %> Kebabs rated</b></p>
     </div>
   </div>
 

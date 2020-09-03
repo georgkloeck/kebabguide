@@ -3,16 +3,16 @@
 <%= link_to @restaurant.name, restaurant_path(@restaurant) %>
 <% if @review.ingredient_reviews.blank? %>
 
-<%= "empty reviews".capitalize  %>
+  <%= "empty reviews".capitalize  %>
   <% else %>
   <% @review.ingredient_reviews.each do |ingredient_review| %>
   <br>
   <div class="review_rating_show" style="color:white;">
-  <p style="color:white;"><%= ingredient_review.ingredient.name  %>
+    <p style="color:white;"><%= ingredient_review.ingredient.name  %>
     <% stars = ingredient_review.score %>
     <% stars.times do %>
       <i style="color:yellow;" class="far fa-star"></i>
     <% end %></p>
-
+    <% end %>
   </div>
 <% end %>
