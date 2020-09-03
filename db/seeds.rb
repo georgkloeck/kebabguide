@@ -16,7 +16,7 @@ puts "seeding Ingredients"
   Ingredient.create(kind: "filling", name: "Lahmacun", description: "Lahmacun is a round, thin piece of dough topped with minced meat, minced vegetables and herbs including onions, tomatoes and parsley, and spices such as cayenne pepper, paprika, cumin and cinnamon, then baked.")
   Ingredient.create(kind: "filling", name: "Halloumi", description: "Halloumi or haloumi is a semi-hard, unripened, brined cheese made from a mixture of goat's and sheep's milk, and sometimes also cow's milk. It has a high melting point and so can easily be fried or grilled. This property makes it a popular meat substitute.")
   Ingredient.create(kind: "filling", name: "Hara Masala Kebab", description: "This Kebab is very special for all vegetarians. Hara Masala Kebab,itself is made with green paste of green peas, spinach, and potatoes along with all the spices.")
-  Ingredient.create(kind: "filling", name: "Dürüm", description: "A durum or durme is a Turkish wrap that is usually filled with typical döner kebab ingredients."
+  Ingredient.create(kind: "filling", name: "Dürüm", description: "A durum or durme is a Turkish wrap that is usually filled with typical döner kebab ingredients.")
   Ingredient.create(kind: "filling", name: "Shawarma", description: "Shawarma is a dish in Middle Eastern cuisine consisting of meat cut into thin slices, stacked in a cone-like shape, and roasted on a slowly-turning vertical rotisserie or spit. Originally made of lamb or mutton, today's shawarma may also be chicken, turkey, beef, or veal.")
   Ingredient.create(kind: "filling", name: "Schnitzel", description: "A schnitzel is a thin slice of meat fried in fat. The meat is usually thinned by pounding with a meat tenderizer. Most commonly, the meats are breaded before frying. The breaded schnitzel is popular in many countries and made using veal, pork, chicken, mutton, beef, turkey, or textured vegetable protein as a vegan alternative. It is very similar to the dish escalope in France, tonkatsu in Japan, and the milanesa of Italy, Mexico, Uruguay, Paraguay, Argentina, Brazil and chicken fried steak of the American South.")
   Ingredient.create(kind: "filling", name: "Fish Kebab", description: "The best marinated Fish Kebabs.")
@@ -106,23 +106,24 @@ puts "Seeding Cuisines"
   Cuisine.create(name: "Sudanese", description:" Since discovering the joy of falafel and peanut sauces, I've checked out a couple of Berlin's other Sudanese restaurants, Khartoum and Marafina. Both are very good, but I still think Sahara is in a class of its own. They offer a wide range of ingredients, including excellent vegetarian and vegan options: falafel, tofu, halloumi, magali (fried vegetables), chicken or kofta. You can then get essentially whichever ones you like combined in either a platter or a sandwich, and smothered in their signature peanut sauce.")
   Cuisine.create(name: "Persian", description: "Kabab koobideh (Persian: کباب کوبیده‎) or kūbide (Persian: کوبیده‎) is an Iranian meat kabab made from ground lamb or beef, often mixed with ground pepper and chopped onions.")
   Cuisine.create(name: "Mughlai cuisine", description: "Mughlai cuisine consists of dishes developed in the medieval Indo-Persian cultural centres of the Mughal Empire. It represents a combination of cuisine of the Indian subcontinent with the cooking styles and recipes of Central Asian and Iranian cuisine.")
-  Cuisine.create(name: "Vietnamese cuisine", description: "Vietnamese cuisine"
+  Cuisine.create(name: "Vietnamese cuisine", description: "Vietnamese cuisine")
+
 puts "6 Cuisines seeded"
 
 puts "_______________________________________________"
 
-puts "seeding Restaurants"
+# puts "seeding Restaurants"
 
-  restaurant = Restaurant.create(name:"Hamdi Baba", address: "Turmstraße 57, 10551 Berlin", description:"The third Store by the Hmdi family franchise", cuisine_id:"1")
+#   restaurant = Restaurant.create(name:"Hamdi Baba", address: "Turmstraße 57, 10551 Berlin", description:"The third Store by the Hmdi family franchise", cuisine_id:"1")
 
 
-   Restaurant.create(name:"Alleppo Grill", address: "Mehringdamm 32, 10961 Berlin", description:"Typical Aleppo style schawarma", cuisine_id:"2")
+#    Restaurant.create(name:"Alleppo Grill", address: "Mehringdamm 32, 10961 Berlin", description:"Typical Aleppo style schawarma", cuisine_id:"2")
 
-   Restaurant.create(name:"Little Sudan", address: "Schönhauser Allee 36, 10435 Berlin", description:"The best penut sause this side of the Nile.", cuisine_id:"3")
+#    Restaurant.create(name:"Little Sudan", address: "Schönhauser Allee 36, 10435 Berlin", description:"The best penut sause this side of the Nile.", cuisine_id:"3")
 
-   Restaurant.create(name:"Al Reda", address: "Hauptstraße 159, 10827 Berlin", description:"The best Persian Style Restaurant in Turmstraße", cuisine_id:"4")
+#    Restaurant.create(name:"Al Reda", address: "Hauptstraße 159, 10827 Berlin", description:"The best Persian Style Restaurant in Turmstraße", cuisine_id:"4")
 
-   puts "4 Restaurants are seeded"
+#    puts "4 Restaurants are seeded"
 
 puts "_______________________________________________"
 
@@ -151,8 +152,8 @@ puts "Seeding 10 random users"
 puts "_______________________________________________"
 
 puts "Seeding Reviews"
-  10.times do
-    Review.create(restaurant_id: (1..4).to_a.sample, user_id: (1..10).to_a.sample)
+  100.times do
+    Review.create(restaurant_id: (1..15).to_a.sample, user_id: (1..10).to_a.sample)
   end
   puts "10 reviews seeded"
 
@@ -160,8 +161,22 @@ puts "_______________________________________________"
 
 puts "seeding Ingredient_Reviews"
 
-50.times do IngredientReview.create(review_id: (1..10).to_a.sample, ingredient_id: (1..22).to_a.sample, score: (1..5).to_a.sample)
+56.times do
+    Review.create(restaurant_id: 1, user_id: (1..10).to_a.sample)
+  end
+
+427.times do IngredientReview.create(review_id: (1..56).to_a.sample, ingredient_id: [5,6,7,16,18,17,27,29,32,40,41,44,48,52,70,68].sample, score: (3..5).to_a.sample)
 end
-puts "seeding 50 random Ingredient_Reviews"
+
+134.times do
+  Review.create(restaurant_id: 2, user_id: (1..10).to_a.sample)
+end
+
+232.times do IngredientReview.create(review_id: (56..190).to_a.sample, ingredient_id: [1,6,7,8,17,16,23,25,27,28,29,31,34,35,37,41,42,43,46,47,50,55,63,65,66].sample, score: (1..5).to_a.sample)
+end
+100.times do
+    Review.create(restaurant_id: (1..15).to_a.sample, user_id: (1..10).to_a.sample)
+  end
+
 
 puts "__________________Done Seeding_______________________"
