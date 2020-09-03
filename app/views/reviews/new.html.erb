@@ -1,19 +1,37 @@
-<p>review creation</p>
-<p style="color:white;"><%= @restaurant.name %>-- <%= @user.email %></p>
-<div id="record" style="color:white;">
+<nav class="navbar justify-content-between">
+  <% if user_signed_in? %>
+    <%= link_to "Back", :back, class: "nav-link"%>
+    <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-link"%>
+  <% else %>
 
-</div>
-
-<div class="container">
-  <%= form_with url:restaurant_reviews_path(@restaurant), local: true, method: :post, id: "form"  do |f| %>
-  <%= render 'shared/subform', f: f, category: "filling" %>
-  <%= render 'shared/subform', f: f, category: "sauce" %>
-  <%= render 'shared/subform', f: f, category: "bread" %>
-  <%= render 'shared/subform', f: f, category: "salad" %>
-  <%= render 'shared/subform', f: f, category: "extra" %>
-  <br>
-  <%= submit_tag("Save review") %>
+    <%= link_to "Login", new_user_session_path, class: "nav-link"%>
   <% end %>
+</nav>
+
+<div class="background-review container">
+  <h1 style="color:black;"> Review <%= @restaurant.name %>    </h1>
+  <div class="container review-output">
+    <div id="record" style="color:black;">
+    </div>
+  </div>
+
+  <div class="container form-review-design">
+    <%= form_with url:restaurant_reviews_path(@restaurant), local: true, method: :post, id: "form"  do |f| %>
+    <%= render 'shared/subform', f: f, category: "filling" %>
+    <div class="line-review"></div>
+    <%= render 'shared/subform', f: f, category: "sauce" %>
+    <div class="line-review"></div>
+    <%= render 'shared/subform', f: f, category: "bread" %>
+    <div class="line-review"></div>
+    <%= render 'shared/subform', f: f, category: "salad" %>
+    <div class="line-review"></div>
+    <%= render 'shared/subform', f: f, category: "extra" %>
+    <br>
+    <div class="btn-review-bottom">
+      <button class="btn-red"> <%= submit_tag("Upload your rating") %> </button>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 

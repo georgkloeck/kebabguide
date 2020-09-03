@@ -1,2 +1,51 @@
-.review{
+.background-review {
+  background-color: white;
+
+  p {
+  font-size: 18px !important;
+  }
+}
+
+.background-review h1 {
+  padding: 35px;
+  margin-bottom: 5px;
+  display: flex;
+  line-height: 110%;
+  justify-content: center;
+}
+
+.background-review h5 {
+  font-size:18px;
+}
+
+.form-review-design {
+  font-size: 18px;
+  margin-bottom: 15px;
+  padding-bottom: 50px;
+  max-width: 450px;
+}
+
+.fa-star {
+  font-size: 20px;
+}
+
+.fa-minus {
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+}
+
+.review-output {
+  font-size: 18px !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-review-bottom {
+  display: flex;
+  justify-content: center;
+}
+
+.deleter {
+  padding-right: 5px;
 }
