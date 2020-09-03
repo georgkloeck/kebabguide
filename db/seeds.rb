@@ -106,7 +106,7 @@ puts "Seeding 10 random users"
 puts "_______________________________________________"
 
 puts "Seeding Reviews"
-  100.times do
+  10.times do
     Review.create(restaurant_id: (1..4).to_a.sample, user_id: (1..10).to_a.sample)
   end
   puts "10 reviews seeded"
@@ -115,7 +115,7 @@ puts "_______________________________________________"
 
 puts "seeding Ingredient_Reviews"
 
-500.times do IngredientReview.create(review_id: (1..100).to_a.sample, ingredient_id: (1..22).to_a.sample, score: (1..5).to_a.sample)
+50.times do IngredientReview.create(review_id: (1..10).to_a.sample, ingredient_id: (1..22).to_a.sample, score: (1..5).to_a.sample)
 end
 puts "seeding 50 random Ingredient_Reviews"
 
