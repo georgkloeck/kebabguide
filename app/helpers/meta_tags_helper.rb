@@ -9,5 +9,6 @@ module MetaTagsHelper
 
   def meta_image
     meta_image = (content_for?(:meta_image) ? content_for(:meta_image) : DEFAULT_META["meta_image"])
+    meta_image.starts_with?("http") ? meta_image : image_url("https://res.cloudinary.com/codestun/image/upload/v1599136473/k9wqlc0ul2ll31mhyicywk5ro9zz.jpg")
   end
 end
