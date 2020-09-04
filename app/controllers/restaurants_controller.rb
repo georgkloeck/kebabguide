@@ -18,14 +18,15 @@ class RestaurantsController < ApplicationController
       {
         lat: restaurant.latitude,
         lng: restaurant.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant })
+        infoWindow: render_to_string(partial: "info_window", locals: { restaurant: restaurant }),
+        image_url: helpers.asset_url('big_marker.png')
       }
     end
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @average_rating = avg_rating(@restaurant)
+    # @average_rating = avg_rating(@restaurant)
   end
 
   def new
@@ -45,15 +46,5 @@ class RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :description, :cuisine_id, :image, :image_cache, :query)
-  end
-
-  def avg_rating(restaurant)
-    score_sum = 0
-    subreview_count = 0
-      restaurant.ingredient_reviews.each do |ing_review|
-        score_sum += ing_review.score
-      end
-    subreview_count = restaurant.ingredient_reviews.count
-    @average_rating = (score_sum.to_f / subreview_count).round(1)
   end
 end
