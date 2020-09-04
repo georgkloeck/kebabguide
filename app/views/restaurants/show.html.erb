@@ -55,3 +55,20 @@
         style="margin-top: -50px; width: 100%; height: 600px;"
         data-markers="<%= @markers.to_json %>"
         data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
+
+markers.forEach((marker) => {
+  const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+  const element = document.createElement('div');
+  element.className = 'marker';
+  element.style.backgroundImage = `url('${marker.image_url}')`;
+  element.style.backgroundSize = 'contain';
+  element.style.width = '25px';
+  element.style.height = '25px';
+
+  new mapboxgl.Marker(element)
+    .setLngLat([marker.lng, marker.lat])
+    .setPopup(popup)
+    .addTo(map);
+});

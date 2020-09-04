@@ -146,37 +146,73 @@ puts "Seeding 10 random users"
     user.email = Faker::Internet.email
     user.password = "1234567"
     user.save!
-    p user
   end
+puts "10 random users seeded"
 
 puts "_______________________________________________"
 
-puts "Seeding Reviews"
-  100.times do
-    Review.create(restaurant_id: (1..15).to_a.sample, user_id: (1..10).to_a.sample)
-  end
-  puts "10 reviews seeded"
 
-puts "_______________________________________________"
-
+puts "Seeding Persian index 1"
 puts "seeding Ingredient_Reviews"
 
 56.times do
     Review.create(restaurant_id: 1, user_id: (1..10).to_a.sample)
   end
 
-427.times do IngredientReview.create(review_id: (1..56).to_a.sample, ingredient_id: [5,6,7,16,18,17,27,29,32,40,41,44,48,52,70,68].sample, score: (3..5).to_a.sample)
+427.times do IngredientReview.create(review_id: (1..56).to_a.sample, ingredient_id: [7,16,18,27,29,32,44,48,52,70].sample, score: (3..5).to_a.sample)
 end
+
+287.times do IngredientReview.create(review_id: (1..56).to_a.sample, ingredient_id: [5,6,29,40,41,68].sample, score: 5)
+end
+
+puts "_______________________________________________"
+
+
+puts "Seeding Turkish index 2"
+puts "seeding Ingredient_Reviews"
+
 
 134.times do
   Review.create(restaurant_id: 2, user_id: (1..10).to_a.sample)
 end
 
-232.times do IngredientReview.create(review_id: (56..190).to_a.sample, ingredient_id: [1,6,7,8,17,16,23,25,27,28,29,31,34,35,37,41,42,43,46,47,50,55,63,65,66].sample, score: (1..5).to_a.sample)
+232.times do IngredientReview.create(review_id: (57..190).to_a.sample, ingredient_id: [6,7,8,17,16,23,25,27,28,29,31,35,37,41,46,47,50].sample, score: (1..5).to_a.sample)
 end
-100.times do
-    Review.create(restaurant_id: (1..15).to_a.sample, user_id: (1..10).to_a.sample)
+
+42.times do IngredientReview.create(review_id: (57..190).to_a.sample, ingredient_id: [1,25,27,37,42,43,55,63,65,66].sample, score: (4..5).to_a.sample)
+end
+
+
+puts "_______________________________________________"
+
+
+puts "Seeding BAD Turkish index 3"
+puts "seeding Ingredient_Reviews"
+
+
+69.times do
+  Review.create(restaurant_id: 3, user_id: (1..10).to_a.sample)
+end
+
+232.times do IngredientReview.create(review_id: (190..259).to_a.sample, ingredient_id: [7,8,17,28,29,31,34,37,63].sample, score: (1..3).to_a.sample)
+end
+
+102.times do IngredientReview.create(review_id: (190..259).to_a.sample, ingredient_id: [6,34,37,47,50,55].sample, score: 1)
+end
+
+puts "_______________________________________________"
+
+
+puts "Seeding the rest 4-15 Index"
+puts "seeding Ingredient_Reviews"
+
+
+50.times do
+    Review.create(restaurant_id: (4..15).to_a.sample, user_id: (1..10).to_a.sample)
   end
+
+232.times do IngredientReview.create(review_id: (259..309).to_a.sample, ingredient_id: [6,7,8,17,28,29,31,34,37,47,50,55,63,6].sample, score: (1..5).to_a.sample)
+end
 
 
 puts "__________________Done Seeding_______________________"
