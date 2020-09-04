@@ -23,6 +23,16 @@ class Restaurant < ApplicationRecord
     hash.each do |k,v|
       hash[k] = (v.sum / v.length.to_f).round(0)
     end
+  end
+
+  def avg_rating
+    score_sum = 0
+    subreview_count = 0
+      ingredient_reviews.each do |ing_review|
+        score_sum += ing_review.score
+      end
+    subreview_count = ingredient_reviews.count
+    @average_rating = (score_sum.to_f / subreview_count).round(1)
     # raise
   end
 end

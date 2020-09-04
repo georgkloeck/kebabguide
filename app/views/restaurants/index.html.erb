@@ -22,16 +22,13 @@
     <h1> The best Kebabs </h1>
     <h2> Results near <%=  @query.present? ? @query.split(",")[0] : "Berlin" %> </h2>
   </div>
-
 </div>
 
 
 <div class="main">
     <% counter = 0 %>
-
     <% @restaurants.each do |restaurant|%>
       <% counter += 1 %>
-
       <%= render partial: 'shared/item_image', locals: { item: restaurant } %>
         <div class="profile">
           <div>
@@ -39,19 +36,16 @@
             <p> <%= restaurant.address.split(",")[0] %></p>
           </div>
           <div class="text-right">
-            <h1>⭐ 3.5</h1>
-            <p><b>1337 Kebabs rated</b></p>
+            <h1>⭐ <%= restaurant.avg_rating %></h1>
+            <p><b><%= restaurant.reviews.count %> Kebabs rated</b></p>
           </div>
         </div>
-
         <% if counter < @restaurants.length %>
-
       <div class="kind-review">
         <div class="line-index"></div>
         <% end %>
       </div>
     <% end %>
-
 </div>
 
     <%# map div below integrate wherever you want when desigining %>
