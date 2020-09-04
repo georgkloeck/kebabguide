@@ -14,14 +14,18 @@ class ReviewsController < ApplicationController
 
   def create
     # raise
-    if @review = Review.create(restaurant_id: @restaurant.id, user_id: current_user.id)
-      params[:ingredients].each do |ingredient|
-        ingredient_id = ingredient[:id]
-        ingredient_score = ingredient[:score]
-        IngredientReview.create(ingredient_id: ingredient_id, score: ingredient_score,  review_id: @review.id)
+    if params[:ingredients].nil?
+      flash[:alert] = "please rate at least one ingredient!"
+      render 'new'
+    else
+      if @review = Review.create(restaurant_id: @restaurant.id, user_id: current_user.id)
+        params[:ingredients].each do |ingredient|
+          ingredient_id = ingredient[:id]
+          ingredient_score = ingredient[:score]
+          IngredientReview.create(ingredient_id: ingredient_id, score: ingredient_score,  review_id: @review.id)
+        end
       end
       redirect_to restaurant_review_path(@restaurant, @review)
-      # if @review.save
     end
   end
 
