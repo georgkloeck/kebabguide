@@ -30,7 +30,7 @@
 <% end %>
 </div>
   <div class="btn-box">
-  <%= button_to "Eat more Kebabs",  restaurants_path(@restaurant), method: :get, class: "btn-red text-deco" %>
+  <%= button_to "Back to #{@restaurant.name.capitalize}",  @restaurant , method: :get, class: "btn-red text-deco" %>
   </div>
 </div>
 
