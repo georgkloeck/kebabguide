@@ -1,21 +1,22 @@
 .search-info {
-  display: flex;
+  display: row;
   justify-content: center !important;
   align-items: center;
   background-color: white;
   color: black;
-  padding-top: 10px;
+  padding-top: 60px;
   height: 150px;
   margin-top: -50px;
+  padding-bottom: -20px;
 }
 
 .search-info-details {
   padding-top: 40px;
+  display: flex;
   justify-content: center ;
 }
 
 .search-info-details h1 {
-  padding-left: 40px;
 }
 
 .search-info-details h2 {
@@ -25,4 +26,14 @@
 
 .form {
   display: inline block;
+}
+
+.search-info-details-heading {
+  display: flex;
+  justify-content: center ;
+}
+
+.search-info-details-sub-heading {
+  display: flex;
+  justify-content: center ;
 }
